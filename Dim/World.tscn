@@ -1,0 +1,191 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://black.png" type="Texture" id=1]
+[ext_resource path="res://player.gd" type="Script" id=2]
+[ext_resource path="res://knight_walking_left/output-onlinepngtools(5).png" type="Texture" id=3]
+[ext_resource path="res://knight_walking_right/walking_right(3).png" type="Texture" id=4]
+[ext_resource path="res://knight_walking_right/walking_right(1).png" type="Texture" id=5]
+[ext_resource path="res://knight_walking_right/1.png" type="Texture" id=6]
+[ext_resource path="res://knight_walking_left/output-onlinepngtools(2).png" type="Texture" id=7]
+[ext_resource path="res://knight_walking_right/walking_right(2).png" type="Texture" id=8]
+[ext_resource path="res://knight_walking_left/output-onlinepngtools(1).png" type="Texture" id=9]
+[ext_resource path="res://knight_walking_left/output-onlinepngtools(3).png" type="Texture" id=10]
+[ext_resource path="res://knight_walking_right/2.png" type="Texture" id=11]
+[ext_resource path="res://knight_jump_left/jump_left(1).png" type="Texture" id=12]
+[ext_resource path="res://knight_walking_left/output-onlinepngtools(4).png" type="Texture" id=13]
+[ext_resource path="res://knight_jump_right/output-onlinepngtools(2).png" type="Texture" id=14]
+[ext_resource path="res://knight_jump_left/output-onlinepngtools(1).png" type="Texture" id=15]
+[ext_resource path="res://knight_jump_right/output-onlinepngtools(3).png" type="Texture" id=16]
+[ext_resource path="res://knight_jump_left/jump_left(3).png" type="Texture" id=17]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(1).png" type="Texture" id=18]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(7).png" type="Texture" id=19]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(4).png" type="Texture" id=20]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(3).png" type="Texture" id=21]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(2).png" type="Texture" id=22]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(6).png" type="Texture" id=23]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(5).png" type="Texture" id=24]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(11).png" type="Texture" id=25]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(8).png" type="Texture" id=26]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(13).png" type="Texture" id=27]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(9).png" type="Texture" id=28]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(12).png" type="Texture" id=29]
+[ext_resource path="res://knight_atack_left/output-onlinepngtools(10).png" type="Texture" id=30]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/walking_right(1).png-3b8f0ad27cf4edde51a56ebe350c5a60.stex"
+
+[sub_resource type="SpriteFrames" id=2]
+resource_local_to_scene = true
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 16 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "Step",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "1Atack",
+"speed": 14.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 12 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Wind",
+"speed": 3.7
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 18 ) ],
+"loop": false,
+"name": "Atack",
+"speed": 12.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 32.0
+height = 108.0
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 256, 16 )
+
+[node name="World" type="Node"]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 510.769, 361.856 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+current = true
+
+[node name="Sprite_right" type="AnimatedSprite" parent="KinematicBody2D"]
+position = Vector2( 0, 1 )
+scale = Vector2( 0.75, 0.75 )
+frames = SubResource( 2 )
+animation = "Idle"
+playing = true
+
+[node name="Sprite_left" type="AnimatedSprite" parent="KinematicBody2D"]
+visible = false
+position = Vector2( -65, 2 )
+scale = Vector2( 0.75, 0.75 )
+frames = SubResource( 3 )
+animation = "1Atack"
+frame = 7
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( -32, 0 )
+scale = Vector2( 1, 0.99 )
+shape = SubResource( 4 )
+
+[node name="Ground" type="Node" parent="."]
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="Ground"]
+position = Vector2( 512, 800 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D13"]
+scale = Vector2( 32, 2 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D13"]
+scale = Vector2( 2, 2 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2D16" type="StaticBody2D" parent="Ground"]
+position = Vector2( 512, 736 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D16"]
+scale = Vector2( 32, 2 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D16"]
+scale = Vector2( 2, 2 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="Ground"]
+position = Vector2( 512, 864 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D14"]
+scale = Vector2( 32, 2 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D14"]
+scale = Vector2( 2, 2 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2D15" type="StaticBody2D" parent="Ground"]
+position = Vector2( 512, 928 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D15"]
+scale = Vector2( 32, 2 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D15"]
+scale = Vector2( 2, 2 )
+shape = SubResource( 5 )

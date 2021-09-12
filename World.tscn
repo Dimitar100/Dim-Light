@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://black.png" type="Texture" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
@@ -30,6 +30,14 @@
 [ext_resource path="res://knight_atack_left/output-onlinepngtools(9).png" type="Texture" id=28]
 [ext_resource path="res://knight_atack_left/output-onlinepngtools(12).png" type="Texture" id=29]
 [ext_resource path="res://knight_atack_left/output-onlinepngtools(10).png" type="Texture" id=30]
+[ext_resource path="res://knight_atack_right/output-onlinepngtools(1).png" type="Texture" id=31]
+[ext_resource path="res://knight_atack_right/output-onlinepngtools(2).png" type="Texture" id=32]
+[ext_resource path="res://knight_atack_right/output-onlinepngtools(4).png" type="Texture" id=33]
+[ext_resource path="res://knight_atack_right/output-onlinepngtools(5).png" type="Texture" id=34]
+[ext_resource path="res://knight_atack_right/output-onlinepngtools(6).png" type="Texture" id=35]
+[ext_resource path="res://knight_atack_right/output-onlinepngtools(8).png" type="Texture" id=36]
+[ext_resource path="res://knight_atack_right/output-onlinepngtools(3).png" type="Texture" id=37]
+[ext_resource path="res://knight_atack_right/output-onlinepngtools(7).png" type="Texture" id=38]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
@@ -42,6 +50,11 @@ animations = [ {
 "loop": true,
 "name": "Walk",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 37 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 36 ) ],
+"loop": false,
+"name": "1Atack",
+"speed": 14.0
 }, {
 "frames": [ SubResource( 1 ) ],
 "loop": true,
@@ -115,7 +128,8 @@ current = true
 position = Vector2( 0, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 2 )
-animation = "Idle"
+animation = "1Atack"
+frame = 7
 playing = true
 
 [node name="Sprite_left" type="AnimatedSprite" parent="KinematicBody2D"]

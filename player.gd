@@ -1,16 +1,13 @@
 extends KinematicBody2D
 
 const UP = Vector2(0, -1)
-const SPEED = 270
-const ATACK_SPEED = 40
+const SPEED = 400
+const ATACK_SPEED = 200
 const GRAVITY = 2000
-const JUMP = -300
+const JUMP = -500
 const WIND_TIMER = 3
 
 var motion = Vector2(0, 0)
-var wind = 0
-var time = 0
-var secs = 0
 
 func play_walk_left():
 	motion.x = -SPEED
@@ -74,7 +71,7 @@ func _process(delta):
 			yield(get_tree().create_timer(20*delta), "timeout")
 			motion.y = JUMP
 
-	if $Sprite_left.get_animation() == "1Atack" && $Sprite_left.frame != 7:
+	if $Sprite_left.get_animation() == "1Atack" &&  Input.is_action_pressed("ui_left"):
 		motion.x = -ATACK_SPEED
 
 	motion = move_and_slide(motion, UP)

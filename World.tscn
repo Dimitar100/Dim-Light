@@ -41,7 +41,7 @@ animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Walk",
-"speed": 6.0
+"speed": 8.0
 }, {
 "frames": [ SubResource( 1 ) ],
 "loop": true,
@@ -61,35 +61,35 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
+}, {
 "frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ) ],
 "loop": false,
 "name": "1Atack",
 "speed": 14.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 6.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 12 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "Wind",
-"speed": 3.7
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 15 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 7.0
+}, {
 "frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 18 ) ],
 "loop": false,
 "name": "Atack",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 12 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 7.0
+"frames": [ ExtResource( 9 ), ExtResource( 12 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Wind",
+"speed": 3.7
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
@@ -159,6 +159,34 @@ scale = Vector2( 32, 2 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D16"]
+scale = Vector2( 2, 2 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2D18" type="StaticBody2D" parent="Ground"]
+position = Vector2( -512, 736 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D18"]
+scale = Vector2( 32, 2 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D18"]
+scale = Vector2( 2, 2 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2D17" type="StaticBody2D" parent="Ground"]
+position = Vector2( 1535.06, 736 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground/StaticBody2D17"]
+scale = Vector2( 32, 2 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D17"]
 scale = Vector2( 2, 2 )
 shape = SubResource( 5 )
 

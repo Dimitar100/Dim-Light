@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://black.png" type="Texture" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
@@ -38,6 +38,14 @@
 [ext_resource path="res://knight_atack_right/output-onlinepngtools(8).png" type="Texture" id=36]
 [ext_resource path="res://knight_atack_right/output-onlinepngtools(3).png" type="Texture" id=37]
 [ext_resource path="res://knight_atack_right/output-onlinepngtools(7).png" type="Texture" id=38]
+[ext_resource path="res://NPC.gd" type="Script" id=39]
+[ext_resource path="res://icon.png" type="Texture" id=40]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 54.2682, 53.2273 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 31.7861, 106.354 )
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
@@ -51,20 +59,20 @@ animations = [ {
 "name": "Walk",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 37 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 36 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": false,
-"name": "1Atack",
-"speed": 14.0
+"name": "Step",
+"speed": 10.0
 }, {
 "frames": [ SubResource( 1 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 37 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 36 ) ],
 "loop": false,
-"name": "Step",
-"speed": 10.0
+"name": "1Atack",
+"speed": 14.0
 }, {
 "frames": [ ExtResource( 14 ), ExtResource( 16 ) ],
 "loop": false,
@@ -79,77 +87,111 @@ animations = [ {
 "name": "Walk",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "1Atack",
-"speed": 14.0
+"frames": [ ExtResource( 9 ), ExtResource( 12 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Wind",
+"speed": 3.7
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 12 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 18 ) ],
 "loop": false,
 "name": "Atack",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 12 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "Wind",
-"speed": 3.7
+"frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "1Atack",
+"speed": 14.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 7.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=4]
-radius = 32.0
-height = 108.0
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 32.0431, 90.1898 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 256, 16 )
 
 [node name="World" type="Node"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="End" type="Area2D" parent="."]
+position = Vector2( 1618.51, 590.288 )
+input_pickable = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="End"]
+position = Vector2( 0, 0.749207 )
+scale = Vector2( 1.60869, 1.58528 )
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
+shape = SubResource( 7 )
+
+[node name="NPC" type="KinematicBody2D" parent="."]
+position = Vector2( -151.388, 568.149 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 39 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="NPC"]
+modulate = Color( 0.14902, 0.882353, 0.192157, 1 )
+position = Vector2( 0, 40.4086 )
+scale = Vector2( 1, 2.68369 )
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+position = Vector2( 0, 40 )
+scale = Vector2( 1, 0.8 )
+shape = SubResource( 9 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 510.769, 361.856 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
-[node name="Sprite_right" type="AnimatedSprite" parent="KinematicBody2D"]
+[node name="Sprite_right" type="AnimatedSprite" parent="Player"]
 position = Vector2( 0, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 2 )
-animation = "1Atack"
-frame = 7
+animation = "Idle"
 playing = true
 
-[node name="Sprite_left" type="AnimatedSprite" parent="KinematicBody2D"]
+[node name="Sprite_left" type="AnimatedSprite" parent="Player"]
 visible = false
-position = Vector2( -65, 2 )
+position = Vector2( -65, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 3 )
-animation = "1Atack"
-frame = 7
+animation = "Idle"
 playing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-position = Vector2( -32, 0 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( -32.2184, -4.3 )
 scale = Vector2( 1, 0.99 )
-shape = SubResource( 4 )
+shape = SubResource( 8 )
 
 [node name="Ground" type="Node" parent="."]
 
 [node name="StaticBody2D13" type="StaticBody2D" parent="Ground"]
 position = Vector2( 512, 800 )
+collision_layer = 3
+collision_mask = 3
 __meta__ = {
 "_edit_group_": true
 }
@@ -164,6 +206,8 @@ shape = SubResource( 5 )
 
 [node name="StaticBody2D16" type="StaticBody2D" parent="Ground"]
 position = Vector2( 512, 736 )
+collision_layer = 3
+collision_mask = 3
 __meta__ = {
 "_edit_group_": true
 }
@@ -178,6 +222,8 @@ shape = SubResource( 5 )
 
 [node name="StaticBody2D18" type="StaticBody2D" parent="Ground"]
 position = Vector2( -512, 736 )
+collision_layer = 3
+collision_mask = 3
 __meta__ = {
 "_edit_group_": true
 }
@@ -191,7 +237,9 @@ scale = Vector2( 2, 2 )
 shape = SubResource( 5 )
 
 [node name="StaticBody2D17" type="StaticBody2D" parent="Ground"]
-position = Vector2( 1535.06, 736 )
+position = Vector2( 1535.42, 736 )
+collision_layer = 3
+collision_mask = 3
 __meta__ = {
 "_edit_group_": true
 }
@@ -206,6 +254,8 @@ shape = SubResource( 5 )
 
 [node name="StaticBody2D14" type="StaticBody2D" parent="Ground"]
 position = Vector2( 512, 864 )
+collision_layer = 3
+collision_mask = 3
 __meta__ = {
 "_edit_group_": true
 }
@@ -220,6 +270,8 @@ shape = SubResource( 5 )
 
 [node name="StaticBody2D15" type="StaticBody2D" parent="Ground"]
 position = Vector2( 512, 928 )
+collision_layer = 3
+collision_mask = 3
 __meta__ = {
 "_edit_group_": true
 }

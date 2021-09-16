@@ -25,3 +25,8 @@ func _process(delta):
 				
 	motion = move_and_slide(motion, UP)
 	motion.x = 0
+
+
+func _on_Jump_body_entered(body):
+	#body.queue_free()
+	body.motion.y = -850

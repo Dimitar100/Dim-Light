@@ -4,7 +4,7 @@ const UP = Vector2(0, -1)
 const SPEED = 500
 const ATACK_SPEED = 200
 const GRAVITY = 2000
-const JUMP = -350
+const JUMP = -550
 const WIND_TIMER = 3
 
 var motion = Vector2(0, 0)

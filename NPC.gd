@@ -8,7 +8,7 @@ const WIND_TIMER = 3
 
 var motion = Vector2(0, 0)
 var target = Vector2(0, 0)
-var end = 0
+var end = false
 
 func _ready():
 	var root_node = get_parent()
@@ -19,10 +19,13 @@ func _process(delta):
 	
 	motion.y += GRAVITY*delta
 	
-	if  global_position.x > target.x:
-		motion.x = -SPEED
-	elif global_position.x < target.x:
-		motion.x = SPEED
+	if !end:
+		if  global_position.x > target.x:
+			motion.x = -SPEED
+		elif global_position.x < target.x:
+			motion.x = SPEED
+	else:
+		motion.x = 0
 	
 	motion = move_and_slide(motion, UP)
 
@@ -30,3 +33,7 @@ func _process(delta):
 func _on_Jump_body_entered(body):
 	#body.queue_free()
 	body.motion.y = -850
+
+
+func _on_End_body_entered(body):
+	body.end = true

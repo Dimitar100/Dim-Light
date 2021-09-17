@@ -130,7 +130,7 @@ extents = Vector2( 256, 16 )
 
 [node name="End" type="Area2D" parent="."]
 visible = false
-position = Vector2( 303.296, 624.229 )
+position = Vector2( 322.927, 619.739 )
 input_pickable = false
 __meta__ = {
 "_edit_group_": true
@@ -160,7 +160,7 @@ position = Vector2( 8.33371, 46.8634 )
 shape = SubResource( 11 )
 
 [node name="NPC" type="KinematicBody2D" parent="."]
-position = Vector2( 158.995, 577.663 )
+position = Vector2( 117.616, 564.06 )
 script = ExtResource( 39 )
 __meta__ = {
 "_edit_group_": true
@@ -319,4 +319,5 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jumps/Jump"]
 shape = SubResource( 10 )
 
+[connection signal="body_entered" from="End" to="NPC" method="_on_End_body_entered"]
 [connection signal="body_entered" from="Jumps/Jump" to="NPC" method="_on_Jump_body_entered"]

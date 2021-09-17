@@ -8,6 +8,7 @@ const WIND_TIMER = 3
 
 var motion = Vector2(0, 0)
 var target = Vector2(0, 0)
+var end = 0
 
 func _ready():
 	var root_node = get_parent()
@@ -22,9 +23,8 @@ func _process(delta):
 		motion.x = -SPEED
 	elif global_position.x < target.x:
 		motion.x = SPEED
-				
+	
 	motion = move_and_slide(motion, UP)
-	motion.x = 0
 
 
 func _on_Jump_body_entered(body):

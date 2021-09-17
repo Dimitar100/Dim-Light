@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://black.png" type="Texture" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
@@ -41,6 +41,7 @@
 [ext_resource path="res://NPC.gd" type="Script" id=39]
 [ext_resource path="res://icon.png" type="Texture" id=40]
 [ext_resource path="res://enemy/output-onlinepngtools(9).png" type="Texture" id=41]
+[ext_resource path="res://mage/output-onlinepngtools(1).png" type="Texture" id=42]
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 54.2682, 53.2273 )
@@ -128,7 +129,8 @@ extents = Vector2( 256, 16 )
 [node name="World" type="Node"]
 
 [node name="End" type="Area2D" parent="."]
-position = Vector2( 1618.51, 590.288 )
+visible = false
+position = Vector2( 303.296, 624.229 )
 input_pickable = false
 __meta__ = {
 "_edit_group_": true
@@ -165,13 +167,12 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="NPC"]
-modulate = Color( 0.14902, 0.882353, 0.192157, 1 )
 position = Vector2( 0, 40.4086 )
-scale = Vector2( 1, 2.68369 )
-texture = ExtResource( 40 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 42 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
-position = Vector2( 0, 40 )
+position = Vector2( -30, 39.5 )
 scale = Vector2( 1, 0.8 )
 shape = SubResource( 9 )
 

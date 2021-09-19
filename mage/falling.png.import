@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/output-onlinepngtools(1).png-cd4e6ffea73d021df0cd6ef3db1d466d.stex"
+path="res://.import/falling.png-c752dce80bb93c5b7790e6022dc8edb4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mage/output-onlinepngtools(1).png"
-dest_files=[ "res://.import/output-onlinepngtools(1).png-cd4e6ffea73d021df0cd6ef3db1d466d.stex" ]
+source_file="res://mage/falling.png"
+dest_files=[ "res://.import/falling.png-c752dce80bb93c5b7790e6022dc8edb4.stex" ]
 
 [params]
 

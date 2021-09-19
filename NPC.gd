@@ -23,10 +23,17 @@ func _process(delta):
 		if  global_position.x > target.x:
 			motion.x = -SPEED
 		elif global_position.x < target.x:
-			motion.x = SPEED
+			motion.x = SPEED	
+		
+		if !is_on_floor() && motion.y > -10:
+			$AnimatedSprite.play("Falling")
+		else:
+			$AnimatedSprite.play("Walking")
+		
 	else:
 		motion.x = 0
-	
+		$AnimatedSprite.play("Idle")
+
 	motion = move_and_slide(motion, UP)
 
 

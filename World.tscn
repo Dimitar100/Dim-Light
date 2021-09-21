@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://black.png" type="Texture" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
@@ -14,7 +14,7 @@
 [ext_resource path="res://knight/knight_jump_left/jump_left(1).png" type="Texture" id=12]
 [ext_resource path="res://knight/knight_walking_left/output-onlinepngtools(4).png" type="Texture" id=13]
 [ext_resource path="res://knight/knight_jump_right/output-onlinepngtools(2).png" type="Texture" id=14]
-[ext_resource path="res://knight/knight_jump_left/output-onlinepngtools(1).png" type="Texture" id=15]
+[ext_resource path="res://knight/knight_jump_left/jump_left(2).png" type="Texture" id=15]
 [ext_resource path="res://knight/knight_jump_right/output-onlinepngtools(3).png" type="Texture" id=16]
 [ext_resource path="res://knight/knight_jump_left/jump_left(3).png" type="Texture" id=17]
 [ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(1).png" type="Texture" id=18]
@@ -51,6 +51,7 @@
 [ext_resource path="res://mage/falling.png" type="Texture" id=49]
 [ext_resource path="res://World.gd" type="Script" id=50]
 [ext_resource path="res://enemy/walking/walking_1.png" type="Texture" id=51]
+[ext_resource path="res://gem/gem.png" type="Texture" id=52]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 54.2682, 53.2273 )
@@ -62,14 +63,14 @@ animations = [ {
 "name": "Sprinting",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 41 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 51 ) ],
 "loop": true,
 "name": "Walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 41 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -78,11 +79,6 @@ extents = Vector2( 114, 81 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 42 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 48 ), ExtResource( 42 ) ],
 "loop": true,
 "name": "Walking",
@@ -91,6 +87,11 @@ animations = [ {
 "frames": [ ExtResource( 49 ) ],
 "loop": true,
 "name": "Falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 42 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -104,16 +105,6 @@ load_path = "res://.import/walking_right(1).png-3b8f0ad27cf4edde51a56ebe350c5a60
 [sub_resource type="SpriteFrames" id=7]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ SubResource( 6 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 16 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Walk",
@@ -128,24 +119,39 @@ animations = [ {
 "loop": false,
 "name": "1Atack",
 "speed": 14.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 16 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 13 ) ],
 "loop": true,
-"name": "Idle",
-"speed": 5.0
+"name": "Walk",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "1Atack",
+"speed": 14.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "Jump",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "Walk",
-"speed": 8.0
+"name": "Idle",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 18 ) ],
 "loop": false,
@@ -156,11 +162,6 @@ animations = [ {
 "loop": true,
 "name": "Wind",
 "speed": 3.7
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "1Atack",
-"speed": 14.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=9]
@@ -171,11 +172,14 @@ extents = Vector2( 256, 16 )
 
 [sub_resource type="RectangleShape2D" id=11]
 
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 18.9875, 130.62 )
+
 [node name="World" type="Node"]
 script = ExtResource( 50 )
 
 [node name="End" type="Area2D" parent="."]
-position = Vector2( 311.362, 613.148 )
+position = Vector2( 327.076, 610.903 )
 input_pickable = false
 __meta__ = {
 "_edit_group_": true
@@ -464,6 +468,22 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jumps/Jump"]
 shape = SubResource( 11 )
+
+[node name="gem" type="Area2D" parent="."]
+position = Vector2( 431.025, 639.803 )
+scale = Vector2( 0.2, 0.2 )
+collision_layer = 4
+collision_mask = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="gem"]
+texture = ExtResource( 52 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gem"]
+scale = Vector2( 5, 1 )
+shape = SubResource( 12 )
 
 [connection signal="body_entered" from="End" to="NPC" method="_on_End_body_entered"]
 [connection signal="body_entered" from="Jumps/Jump" to="NPC" method="_on_Jump_body_entered"]

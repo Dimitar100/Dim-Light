@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/output-onlinepngtools(6).png-4b5191a423ef9d5e81a955758c5ef21b.stex"
+path="res://.import/pixil-frame-0(5).png-979a81dd024a81ec0848aade33a2487c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://knight/output-onlinepngtools(6).png"
-dest_files=[ "res://.import/output-onlinepngtools(6).png-4b5191a423ef9d5e81a955758c5ef21b.stex" ]
+source_file="res://tiles/pixil-frame-0(5).png"
+dest_files=[ "res://.import/pixil-frame-0(5).png-979a81dd024a81ec0848aade33a2487c.stex" ]
 
 [params]
 

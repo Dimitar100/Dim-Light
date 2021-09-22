@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
 const UP = Vector2(0, -1)
-const SPEED = 250
+const SPEED = 300
+const FAST_SPEED = 600
 const GRAVITY = 2000
 const JUMP = -350
 const WIND_TIMER = 3
@@ -9,6 +10,7 @@ const WIND_TIMER = 3
 var motion = Vector2(0, 0)
 var target = Vector2(0, 0)
 var end = false
+var fast = -1
 
 func _ready():
 	var root_node = get_parent()
@@ -19,11 +21,20 @@ func _process(delta):
 	
 	motion.y += GRAVITY*delta
 	
+	
+		
+	
 	if !end:
 		if  global_position.x > target.x:
-			motion.x = -SPEED
+			if fast > 0:
+				motion.x = -FAST_SPEED
+			else:	
+				motion.x = -SPEED
 		elif global_position.x < target.x:
-			motion.x = SPEED	
+			if fast > 0:
+				motion.x = FAST_SPEED
+			else:	
+				motion.x = SPEED
 		
 		if !is_on_floor() && motion.y > -20:
 			$AnimatedSprite.play("Falling")
@@ -44,3 +55,7 @@ func _on_Jump_body_entered(body):
 
 func _on_End_body_entered(body):
 	body.end = true
+
+
+func _on_Long_jump_body_entered(body):
+	fast = fast * (-1)

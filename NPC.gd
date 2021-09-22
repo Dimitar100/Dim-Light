@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const UP = Vector2(0, -1)
-const SPEED = 300
+const SPEED = 350
 const FAST_SPEED = 600
 const GRAVITY = 2000
 const JUMP = -350
@@ -21,9 +21,6 @@ func _process(delta):
 	
 	motion.y += GRAVITY*delta
 	
-	
-		
-	
 	if !end:
 		if  global_position.x > target.x:
 			if fast > 0:
@@ -36,7 +33,7 @@ func _process(delta):
 			else:	
 				motion.x = SPEED
 		
-		if !is_on_floor() && motion.y > -20:
+		if !is_on_floor() && motion.y > -200:
 			$AnimatedSprite.play("Falling")
 		else:
 			$AnimatedSprite.play("Walking")
@@ -57,5 +54,5 @@ func _on_End_body_entered(body):
 	body.end = true
 
 
-func _on_Long_jump_body_entered(body):
+func _on_Long_jump_body_entered(_body):
 	fast = fast * (-1)

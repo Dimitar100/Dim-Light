@@ -14,6 +14,7 @@ var root_node
 var child_two
 var ready = false
 var direction
+var on = true
 
 func _ready():
 	root_node = get_parent()
@@ -54,7 +55,8 @@ func _process(delta):
 		motion = move_and_slide(motion, UP)
 	else:
 		$AnimatedSprite.visible = false
-		
+
+
 
 
 func _on_EnemyJump_body_entered(body):
@@ -69,3 +71,13 @@ func _on_trigger_body_entered(_body):
 	ready = true
 	$AnimatedSprite.visible = true
 
+
+
+func _on_Atack_left_body_entered(body):
+	body.ready = false
+	body.on = false
+
+
+func _on_Atack_right_body_entered(body):
+	body.ready = false
+	body.on = false

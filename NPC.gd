@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
 const UP = Vector2(0, -1)
-const SPEED = 150
-const FAST_SPEED = 300
+const SPEED = 350
+const FAST_SPEED = 600
 const GRAVITY = 2000
-const JUMP = -700
+const JUMP = -850
 const WIND_TIMER = 3
 
 var motion = Vector2(0, 0)
@@ -21,7 +21,7 @@ func _ready():
 func _apply_gravity(delta):
 	motion.y += GRAVITY*delta
 
-func _process(_delta):
+func _apply_movement(_delta):
 	if !end:
 		if  global_position.x > target.x:
 			if fast > 0:

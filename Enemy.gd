@@ -17,8 +17,8 @@ var direction
 var on = true
 
 func _ready():
-	root_node = get_parent()
-	child_two = root_node.get_parent().get_node("NPC")
+	
+	child_two = get_parent().get_node("NPC")
 	target = child_two.global_position
 	direction =  $AnimatedSprite.flip_h
 	$AnimatedSprite.visible = false
@@ -28,7 +28,7 @@ func _process(delta):
 	motion.y += GRAVITY*delta
 	
 
-	child_two = root_node.get_parent().get_node("NPC")
+	child_two = get_parent().get_node("NPC")
 	target = child_two.global_position
 	
 	if ready:
@@ -42,10 +42,6 @@ func _process(delta):
 				motion.x = FAST_SPEED
 			else:	
 				motion.x = SPEED
-			
-			#if !is_on_floor():
-			#	$AnimatedSprite.play("Falling")
-			#else:
 			$AnimatedSprite.play("Sprinting")
 			
 		else:
@@ -65,17 +61,19 @@ func _on_EnemyJump_body_entered(body):
 
 func _on_Mage_body_entered(body):
 	body.ready = false
+	body.on = false
 
 
 func _on_trigger_body_entered(_body):
 	ready = true
 	$AnimatedSprite.visible = true
 
-
+	
 
 func _on_Atack_left_body_entered(body):
 	body.ready = false
 	body.on = false
+	
 
 
 func _on_Atack_right_body_entered(body):

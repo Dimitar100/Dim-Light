@@ -4,10 +4,11 @@ const UP = Vector2(0, -1)
 const SPEED = 650
 const ATACK_SPEED = 200
 const GRAVITY = 2000
-const JUMP = -550
+const JUMP = -850
 const WIND_TIMER = 3
 
 var motion = Vector2(0, 0)
+var move_direction
 
 func play_walk_left():
 	motion.x = -SPEED
@@ -30,10 +31,14 @@ func play_walk_right():
 		$Sprite_left.visible = false
 
 
-func _process(delta):
-
+func _apply_gravity(delta):
 	motion.y += GRAVITY*delta
 
+func _handle_move_input():
+	move_direction = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+
+func _apply_movement(_delta):
+	
 	if Input.is_action_pressed("ui_right") && !Input.is_action_pressed("ui_left"):
 		
 		if Input.is_action_just_pressed("ui_click_left"):
@@ -80,14 +85,16 @@ func _process(delta):
 				$Sprite_right.play("Jump")
 			else:
 				$Sprite_left.play("Jump")
-				
-			yield(get_tree().create_timer(20*delta), "timeout")
+
 			motion.y = JUMP
 
 	if $Sprite_left.get_animation() == "1Atack" &&  Input.is_action_pressed("ui_left"):
 		motion.x = -ATACK_SPEED	
 	if $Sprite_right.get_animation() == "1Atack" &&  Input.is_action_pressed("ui_right"):
 		motion.x = ATACK_SPEED
+		
+	_handle_move_input()
+
 
 	motion = move_and_slide(motion, UP)
 	motion.x = 0

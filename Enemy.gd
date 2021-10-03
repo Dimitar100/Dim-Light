@@ -23,10 +23,9 @@ func _ready():
 	direction =  $AnimatedSprite.flip_h
 	$AnimatedSprite.visible = false
 
-func _process(delta):
+func _physics_process(delta):
 	
 	motion.y += GRAVITY*delta
-	
 
 	child_two = get_parent().get_node("NPC")
 	target = child_two.global_position

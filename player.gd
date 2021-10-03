@@ -95,7 +95,6 @@ func _apply_movement(_delta):
 		
 	_handle_move_input()
 
-
 	motion = move_and_slide(motion, UP)
 	motion.x = 0
 

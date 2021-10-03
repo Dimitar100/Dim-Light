@@ -10,8 +10,7 @@ func _ready():
 func _process(delta):
 	
 	if Input.is_action_just_pressed("ui_click_left") && child.visible :
-		yield(get_tree().create_timer(50*delta), "timeout")
 		$CollisionShape2D.disabled = false
-		yield(get_tree().create_timer(100*delta), "timeout")
+		yield(get_tree().create_timer(25*delta), "timeout")
 		$CollisionShape2D.disabled = true
 

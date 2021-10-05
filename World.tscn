@@ -124,6 +124,11 @@ load_path = "res://.import/walking_right(1).png-3b8f0ad27cf4edde51a56ebe350c5a60
 [sub_resource type="SpriteFrames" id=10]
 resource_local_to_scene = true
 animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 9 ) ],
 "loop": true,
 "name": "Idle",
@@ -131,7 +136,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 37 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 36 ) ],
 "loop": false,
-"name": "1Atack",
+"name": "Atack",
 "speed": 14.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -152,19 +157,24 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 18 ) ],
+"loop": false,
+"name": "DoubleAtack",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 18 ) ],
-"loop": false,
-"name": "Atack",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 26 ) ],
 "loop": false,
-"name": "1Atack",
+"name": "Atack",
 "speed": 14.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 12 ) ],
@@ -315,7 +325,7 @@ script = ExtResource( 58 )
 position = Vector2( 0, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 10 )
-animation = "Idle"
+animation = "Fall"
 playing = true
 
 [node name="Sprite_left" type="AnimatedSprite" parent="Player"]
@@ -323,7 +333,8 @@ visible = false
 position = Vector2( -65, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 11 )
-animation = "Idle"
+animation = "Atack"
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]

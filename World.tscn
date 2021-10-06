@@ -333,8 +333,7 @@ visible = false
 position = Vector2( -65, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 11 )
-animation = "Atack"
-frame = 7
+animation = "Fall"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]

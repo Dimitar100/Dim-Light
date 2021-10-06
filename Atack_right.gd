@@ -7,7 +7,7 @@ func _ready():
 	root_node = get_parent()
 	child = root_node.get_node("Sprite_right")
 
-func _process(delta):
+func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("ui_click_left") && child.visible :
 		$CollisionShape2D.disabled = false

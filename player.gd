@@ -12,6 +12,10 @@ var move_direction = 0
 var atack = false
 onready var anim_player = get_node("Sprite_right")
 
+func _play_anim(anim):
+	$Sprite_left.play(anim)
+	$Sprite_right.play(anim)
+
 func _apply_gravity(delta):
 	motion.y += GRAVITY*delta
 
@@ -29,13 +33,9 @@ func _handle_move_input():
 	if move_direction > 0:
 		$Sprite_right.visible = true
 		$Sprite_left.visible = false
-		anim_player = $Sprite_right
-	elif move_direction < 0:
+	if move_direction < 0:
 		$Sprite_right.visible = false
 		$Sprite_left.visible = true
-		anim_player = $Sprite_left
-			
-	
 
 
 func _apply_movement(_delta):

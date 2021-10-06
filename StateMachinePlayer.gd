@@ -9,12 +9,11 @@ func _ready():
 	add_state("fall")
 	add_state("jump")
 	add_state("atack")
-	add_state("atack_move")
 	add_state("dead")
 	call_deferred("set_state", states.idle)
 
 func _input(_event):
-	if [states.idle, states.walk, states.atack, states.atack_move].has(state):
+	if [states.idle, states.walk, states.atack].has(state):
 		#JUMP
 		if Input.is_action_pressed("ui_up"):
 			parent.motion.y = parent.JUMP
@@ -88,9 +87,6 @@ func _enter_state(new_state, _old_state):
 			parent.anim_player.play("Jump")
 		states.atack:
 			parent.anim_player.play("Atack")
-		states.atack_move:
-			parent.anim_player.play("Atack")
-			
-	
+
 func _exit_state(_old_state, _new_state):
 	pass

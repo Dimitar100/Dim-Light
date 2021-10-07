@@ -42,10 +42,12 @@ func _state_logic(delta):
 func _get_transition(_delta):
 	match state:
 		states.idle:
+			if parent.is_on_floor():
+				prev_state = states.idle
+
 			if !parent.is_on_floor():
 				if parent.motion.y < 0:
 					if prev_state == states.atack:
-						print("hi")
 						return states.fall
 					else:
 						return states.jump

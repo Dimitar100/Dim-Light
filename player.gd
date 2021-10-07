@@ -9,8 +9,6 @@ var speed
 
 var motion = Vector2(0, 0)
 var move_direction = 0
-var atack = false
-onready var anim_player = get_node("Sprite_right")
 
 func _play_anim(anim):
 	$Sprite_left.play(anim)
@@ -37,10 +35,6 @@ func _handle_move_input():
 		$Sprite_right.visible = false
 		$Sprite_left.visible = true
 
-
 func _apply_movement(_delta):
 	motion.x = speed * move_direction 
 	motion = move_and_slide(motion, UP)
-	
-
-

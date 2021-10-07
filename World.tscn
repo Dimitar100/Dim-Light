@@ -180,7 +180,7 @@ animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "Jump",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 13 ) ],
 "loop": true,
@@ -337,7 +337,7 @@ animation = "Fall"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( -32.2184, -4.3 )
+position = Vector2( -32.218, -4.5 )
 scale = Vector2( 1, 0.99 )
 shape = SubResource( 12 )
 

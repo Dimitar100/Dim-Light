@@ -11,9 +11,20 @@ func _ready():
 	add_state("atack")
 	add_state("dead")
 	call_deferred("set_state", states.idle)
+	
+func _atack_done_check():
+	if parent.get_node("Sprite_right").get_animation() == "Atack" || parent.get_node("Sprite_left").get_animation() == "Atack":
+			if parent.get_node("Sprite_right").frame == parent.get_node("Sprite_right").frames.get_frame_count("Atack") - 1:
+				return true
+			elif parent.get_node("Sprite_left").frame == parent.get_node("Sprite_left").frames.get_frame_count("Atack") - 1:
+				return true
+			else:
+				return false
+	else:
+		return true
 
 func _input(_event):
-	if [states.idle, states.walk].has(state):
+	if [states.idle, states.walk, states.atack].has(state):
 		#JUMP
 		if Input.is_action_pressed("ui_up"):
 			if parent.is_on_floor():
@@ -33,7 +44,11 @@ func _get_transition(_delta):
 		states.idle:
 			if !parent.is_on_floor():
 				if parent.motion.y < 0:
-					return states.jump
+					if prev_state == states.atack:
+						print("hi")
+						return states.fall
+					else:
+						return states.jump
 				if parent.motion.y >= 0:
 					return states.fall
 			elif parent.motion.x != 0:
@@ -62,23 +77,22 @@ func _get_transition(_delta):
 		states.fall:
 			if parent.is_on_floor():
 				return states.idle
-			elif parent.motion.y < 0:
-				return states.jump
 			elif atack:
 				return states.atack
 		states.atack:
-			if parent.get_node("Sprite_right").get_animation() == "Atack" && parent.get_node("Sprite_right").frame == parent.get_node("Sprite_right").frames.get_frame_count("Atack") - 1:
-				atack = false
-				return states.idle
-			elif parent.get_node("Sprite_left").get_animation() == "Atack" && parent.get_node("Sprite_left").frame == parent.get_node("Sprite_left").frames.get_frame_count("Atack") - 1:
-				atack = false
-				return states.idle
-			elif direction == 0 && parent.move_direction != 0:
-				atack = false
-				return states.idle
-			elif direction == (-1 * parent.move_direction) && (direction != 0 && parent.move_direction != 0):
-				atack = false
-				return states.walk
+			if _atack_done_check():
+				if parent.get_node("Sprite_right").get_animation() == "Atack" && parent.get_node("Sprite_right").frame == parent.get_node("Sprite_right").frames.get_frame_count("Atack") - 1:
+					atack = false
+					return states.idle
+				elif parent.get_node("Sprite_left").get_animation() == "Atack" && parent.get_node("Sprite_left").frame == parent.get_node("Sprite_left").frames.get_frame_count("Atack") - 1:
+					atack = false
+					return states.idle
+				elif direction == 0 && parent.move_direction != 0:
+					atack = false
+					return states.idle
+				elif direction == (-1 * parent.move_direction) && (direction != 0 && parent.move_direction != 0):
+					atack = false
+					return states.walk
 	return null
 				
 func _enter_state(new_state, _old_state):

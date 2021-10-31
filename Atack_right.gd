@@ -17,5 +17,6 @@ func _physics_process(delta):
 
 
 func _on_Atack_right_body_entered(body):
-	body.ready = false
-	body.on = false
+	#body.ready = false
+	#body.on = false
+	body.queue_free()

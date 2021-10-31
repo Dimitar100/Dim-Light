@@ -16,7 +16,7 @@ var direction
 var on = true
 
 func _ready():
-	child_two = get_parent().get_node("NPC")
+	child_two = get_parent().get_node("Mage")
 	target = child_two.global_position
 	direction =  $AnimatedSprite.flip_h
 	$AnimatedSprite.visible = false
@@ -26,7 +26,7 @@ func _apply_gravity(delta):
 
 func _apply_movement(_delta):
 	
-	child_two = get_parent().get_node("NPC")
+	child_two = get_parent().get_node("Mage")
 	target = child_two.global_position
 	
 	if ready:

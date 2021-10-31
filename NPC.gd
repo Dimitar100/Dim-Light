@@ -37,14 +37,3 @@ func _apply_movement(_delta):
 		motion.x = 0
 
 	motion = move_and_slide(motion, UP)
-
-
-func _on_Jump_body_entered(body):
-	#body.queue_free()
-	body.motion.y = JUMP
-
-func _on_End_body_entered(body):
-	body.end = true
-
-func _on_Long_jump_body_entered(_body):
-	fast = fast * (-1)

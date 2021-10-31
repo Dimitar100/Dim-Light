@@ -55,8 +55,10 @@ shape = SubResource( 2 )
 
 [node name="Mage" type="Area2D" parent="."]
 visible = false
-collision_layer = 10
-collision_mask = 10
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mage"]
 shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Mage" to="." method="_on_Mage_body_entered"]

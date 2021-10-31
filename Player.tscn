@@ -1,0 +1,184 @@
+[gd_scene load_steps=45 format=2]
+
+[ext_resource path="res://knight/knight_walking_left/output-onlinepngtools(1).png" type="Texture" id=1]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(3).png" type="Texture" id=2]
+[ext_resource path="res://knight/knight_atack_right/output-onlinepngtools(1).png" type="Texture" id=3]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(9).png" type="Texture" id=4]
+[ext_resource path="res://knight/knight_walking_left/output-onlinepngtools(4).png" type="Texture" id=5]
+[ext_resource path="res://knight/knight_walking_right/1.png" type="Texture" id=6]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(12).png" type="Texture" id=7]
+[ext_resource path="res://knight/knight_atack_right/output-onlinepngtools(4).png" type="Texture" id=8]
+[ext_resource path="res://knight/knight_atack_right/output-onlinepngtools(3).png" type="Texture" id=9]
+[ext_resource path="res://knight/knight_walking_right/walking_right(2).png" type="Texture" id=10]
+[ext_resource path="res://knight/knight_walking_right/walking_right(1).png" type="Texture" id=11]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(7).png" type="Texture" id=12]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(5).png" type="Texture" id=13]
+[ext_resource path="res://knight/knight_jump_left/jump_left(1).png" type="Texture" id=14]
+[ext_resource path="res://knight/knight_jump_right/output-onlinepngtools(3).png" type="Texture" id=15]
+[ext_resource path="res://knight/knight_atack_right/output-onlinepngtools(6).png" type="Texture" id=16]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(2).png" type="Texture" id=17]
+[ext_resource path="res://knight/knight_walking_right/walking_right(3).png" type="Texture" id=18]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(11).png" type="Texture" id=19]
+[ext_resource path="res://knight/knight_walking_left/output-onlinepngtools(2).png" type="Texture" id=20]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(13).png" type="Texture" id=21]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(10).png" type="Texture" id=22]
+[ext_resource path="res://knight/knight_atack_right/output-onlinepngtools(2).png" type="Texture" id=23]
+[ext_resource path="res://knight/knight_jump_right/output-onlinepngtools(2).png" type="Texture" id=24]
+[ext_resource path="res://knight/knight_walking_left/output-onlinepngtools(3).png" type="Texture" id=25]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(6).png" type="Texture" id=26]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(1).png" type="Texture" id=27]
+[ext_resource path="res://knight/knight_atack_right/output-onlinepngtools(5).png" type="Texture" id=28]
+[ext_resource path="res://knight/knight_atack_right/output-onlinepngtools(8).png" type="Texture" id=29]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(4).png" type="Texture" id=30]
+[ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(8).png" type="Texture" id=31]
+[ext_resource path="res://knight/knight_atack_right/output-onlinepngtools(7).png" type="Texture" id=32]
+[ext_resource path="res://knight/knight_walking_right/2.png" type="Texture" id=33]
+[ext_resource path="res://knight/knight_walking_left/output-onlinepngtools(5).png" type="Texture" id=34]
+[ext_resource path="res://knight/knight_jump_left/jump_left(2).png" type="Texture" id=35]
+[ext_resource path="res://StateMachinePlayer.gd" type="Script" id=36]
+[ext_resource path="res://Atack_left.gd" type="Script" id=37]
+[ext_resource path="res://player.gd" type="Script" id=38]
+[ext_resource path="res://Atack_right.gd" type="Script" id=39]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/walking_right(1).png-3b8f0ad27cf4edde51a56ebe350c5a60.stex"
+
+[sub_resource type="SpriteFrames" id=2]
+resource_local_to_scene = true
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 23 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 28 ), ExtResource( 16 ), ExtResource( 32 ), ExtResource( 29 ) ],
+"loop": false,
+"name": "Atack",
+"speed": 14.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": false,
+"name": "Step",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 33 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 31 ), ExtResource( 4 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 27 ) ],
+"loop": false,
+"name": "DoubleAtack",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 31 ) ],
+"loop": false,
+"name": "Atack",
+"speed": 14.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 20 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 34 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32.0431, 90.1898 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 30.2984, 54.5701 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( -236.361, 417.017 )
+scale = Vector2( 0.65, 0.65 )
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 38 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0.00012207, -50.0001 )
+current = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 36 )
+
+[node name="Sprite_right" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 1 )
+scale = Vector2( 0.75, 0.75 )
+frames = SubResource( 2 )
+animation = "Fall"
+playing = true
+
+[node name="Sprite_left" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -65, 1 )
+scale = Vector2( 0.75, 0.75 )
+frames = SubResource( 3 )
+animation = "Fall"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -32.218, -4.6 )
+scale = Vector2( 1, 0.99 )
+shape = SubResource( 4 )
+
+[node name="Atack_right" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource( 39 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Atack_right"]
+position = Vector2( 50.7127, -17.1327 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="Atack_left" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource( 37 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Atack_left"]
+position = Vector2( -114.446, -19.1885 )
+shape = SubResource( 5 )
+disabled = true
+
+[connection signal="body_entered" from="Atack_right" to="Atack_right" method="_on_Atack_right_body_entered"]
+[connection signal="body_entered" from="Atack_left" to="Atack_left" method="_on_Atack_left_body_entered"]

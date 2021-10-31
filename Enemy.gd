@@ -26,10 +26,10 @@ func _apply_gravity(delta):
 
 func _apply_movement(_delta):
 	
-	child_two = get_parent().get_node("Mage")
-	target = child_two.global_position
-	
 	if ready:
+		child_two = get_parent().get_node("Mage")
+		target = child_two.global_position
+		
 		if  global_position.x > target.x:
 			if fast > 0:
 				motion.x = -FAST_SPEED
@@ -47,21 +47,6 @@ func _apply_movement(_delta):
 	else:
 		$AnimatedSprite.visible = false
 
-func _on_EnemyJump_body_entered(body):
-	body.motion.y = JUMP
-
-func _on_Mage_body_entered(body):
-	body.ready = false
-	body.on = false
-
 func _on_trigger_body_entered(_body):
 	ready = true
 	$AnimatedSprite.visible = true
-
-func _on_Atack_left_body_entered(body):
-	body.ready = false
-	body.on = false
-
-func _on_Atack_right_body_entered(body):
-	body.ready = false
-	body.on = false

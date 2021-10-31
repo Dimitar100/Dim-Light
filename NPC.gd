@@ -37,3 +37,9 @@ func _apply_movement(_delta):
 		motion.x = 0
 
 	motion = move_and_slide(motion, UP)
+
+
+func _on_Mage_body_entered(body):
+	body.ready = false
+	body.on = false
+	queue_free()

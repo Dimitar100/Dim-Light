@@ -15,3 +15,8 @@ func _physics_process(delta):
 		yield(get_tree().create_timer(25*delta), "timeout")
 		$CollisionShape2D.disabled = true
 
+
+
+func _on_Atack_left_body_entered(body):
+	body.ready = false
+	body.on = false

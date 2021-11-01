@@ -31,6 +31,12 @@ func _handle_move_input():
 		$Sprite_right.visible = false
 		$Sprite_left.visible = true
 
+func _stop_movement():
+	speed = 0
+
+func _is_falling():
+	return is_on_floor()
+
 func _apply_movement(_delta):
 	motion.x = speed * move_direction 
 	motion = move_and_slide(motion, UP)

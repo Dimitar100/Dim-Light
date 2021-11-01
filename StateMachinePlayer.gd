@@ -14,12 +14,12 @@ func _ready():
 	
 func _atack_done_check():
 	if parent.get_node("Sprite_right").get_animation() == "Atack" || parent.get_node("Sprite_left").get_animation() == "Atack":
-			if parent.get_node("Sprite_right").frame == parent.get_node("Sprite_right").frames.get_frame_count("Atack") - 1:
-				return true
-			elif parent.get_node("Sprite_left").frame == parent.get_node("Sprite_left").frames.get_frame_count("Atack") - 1:
-				return true
-			else:
-				return false
+		if parent.get_node("Sprite_right").frame == parent.get_node("Sprite_right").frames.get_frame_count("Atack") - 1:
+			return true
+		elif parent.get_node("Sprite_left").frame == parent.get_node("Sprite_left").frames.get_frame_count("Atack") - 1:
+			return true
+		else:
+			return false
 	else:
 		return true
 
@@ -35,7 +35,12 @@ func _input(_event):
 				atack = true
 
 func _state_logic(delta):
-	parent._handle_move_input()
+	if _atack_done_check():
+		parent._handle_move_input()
+	else: 
+		if parent._is_falling():
+			parent._stop_movement()
+		
 	parent._apply_gravity(delta)
 	parent._apply_movement(delta)
 
@@ -84,7 +89,7 @@ func _get_transition(_delta):
 			elif atack:
 				return states.atack
 		states.atack:
-			parent.speed = parent.SPEED
+			parent.speed = parent.JUMP_SPEED
 			if _atack_done_check():
 				if parent.get_node("Sprite_right").get_animation() == "Atack" && parent.get_node("Sprite_right").frame == parent.get_node("Sprite_right").frames.get_frame_count("Atack") - 1:
 					atack = false

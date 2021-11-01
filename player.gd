@@ -3,6 +3,7 @@ extends KinematicBody2D
 const UP = Vector2(0, -1)
 const SPEED = 650
 const ATACK_SPEED = 200
+const JUMP_SPEED = 500
 const GRAVITY = 2000
 const JUMP = -850
 var speed
@@ -20,12 +21,7 @@ func _apply_gravity(delta):
 func _handle_move_input():
 	
 	move_direction = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-	
-	if move_direction != 0 && Input.is_action_just_pressed("ui_click_left"):
-		speed = ATACK_SPEED
-	elif move_direction != 0:
-		speed = SPEED
-	elif move_direction == 0:
+	if move_direction == 0:
 		speed = 0
 
 	if move_direction > 0:

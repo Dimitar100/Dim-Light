@@ -28,7 +28,7 @@ animations = [ {
 extents = Vector2( 31.7861, 106.354 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 36.0616, 64.3196 )
+extents = Vector2( 30.1101, 64.3196 )
 
 [node name="Mage" type="KinematicBody2D"]
 position = Vector2( 10.1514, 414.247 )
@@ -54,7 +54,6 @@ scale = Vector2( 1, 0.8 )
 shape = SubResource( 2 )
 
 [node name="Mage" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 

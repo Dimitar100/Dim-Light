@@ -11,24 +11,33 @@ var target = Vector2(0, 0)
 var fast = -1
 var root_node
 var child_two
-var ready = false
-var direction
+var ready = true
+var direction = 1
 var on = true
 
 func _ready():
-	child_two = get_parent().get_node("Mage")
-	target = child_two.global_position
-	direction =  $AnimatedSprite.flip_h
-	$AnimatedSprite.visible = false
-	
+	child_two = get_parent().get_parent().get_node("Mage")
+	if child_two == null:
+		queue_free()
+	else:
+		target = child_two.global_position
+		if  global_position.x > target.x:
+			$AnimatedSprite.flip_h = true
+			direction = -1
+
 func _apply_gravity(delta):
-	motion.y += GRAVITY*delta
+	if ready:
+		motion.y += GRAVITY*delta
 
 func _apply_movement(_delta):
 	
 	if ready:
-		child_two = get_parent().get_node("Mage")
-		target = child_two.global_position
+		$CollisionShape2D.disabled = false
+		child_two = get_parent().get_parent().get_node("Mage")
+		if child_two == null:
+			queue_free()
+		else:
+			target = child_two.global_position
 		
 		if  global_position.x > target.x:
 			if fast > 0:
@@ -47,6 +56,5 @@ func _apply_movement(_delta):
 	else:
 		$AnimatedSprite.visible = false
 
-func _on_trigger_body_entered(_body):
-	ready = true
-	$AnimatedSprite.visible = true
+	
+	

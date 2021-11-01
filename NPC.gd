@@ -11,11 +11,16 @@ var motion = Vector2(0, 0)
 var target = Vector2(0, 0)
 var end = false
 var fast = -1
+var direction = 1
 
 func _ready():
 	var root_node = get_parent()
 	var child_two = root_node.get_node("End")
 	target = child_two.global_position
+	
+	if global_position.x > target.x:
+		$AnimatedSprite.flip_h = true
+		direction = -1
 
 
 func _apply_gravity(delta):
@@ -40,6 +45,5 @@ func _apply_movement(_delta):
 
 
 func _on_Mage_body_entered(body):
-	body.ready = false
-	body.on = false
+	body.queue_free()
 	queue_free()

@@ -42,9 +42,9 @@ func _state_logic(delta):
 func _get_transition(_delta):
 	match state:
 		states.idle:
+			parent.speed = parent.SPEED
 			if parent.is_on_floor():
 				prev_state = states.idle
-
 			if !parent.is_on_floor():
 				if parent.motion.y < 0:
 					if prev_state == states.atack:
@@ -58,6 +58,7 @@ func _get_transition(_delta):
 			elif atack:
 				return states.atack
 		states.walk:
+			parent.speed = parent.SPEED
 			direction = parent.move_direction
 			if !parent.is_on_floor():
 				if parent.motion.y < 0:
@@ -67,9 +68,9 @@ func _get_transition(_delta):
 			elif parent.motion.x == 0:
 				return states.idle
 			elif atack:
-				parent.speed = parent.ATACK_SPEED
 				return states.atack
 		states.jump:
+			parent.speed = parent.JUMP_SPEED
 			if parent.is_on_floor():
 				return states.idle
 			elif parent.motion.y >= 0:
@@ -77,11 +78,13 @@ func _get_transition(_delta):
 			elif atack:
 				return states.atack
 		states.fall:
+			parent.speed = parent.JUMP_SPEED
 			if parent.is_on_floor():
 				return states.idle
 			elif atack:
 				return states.atack
 		states.atack:
+			parent.speed = parent.SPEED
 			if _atack_done_check():
 				if parent.get_node("Sprite_right").get_animation() == "Atack" && parent.get_node("Sprite_right").frame == parent.get_node("Sprite_right").frames.get_frame_count("Atack") - 1:
 					atack = false

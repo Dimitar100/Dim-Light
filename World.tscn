@@ -32,7 +32,7 @@ position = Vector2( 7404.8, 486.293 )
 position = Vector2( 9910.8, 487.07 )
 
 [node name="Mage" parent="." instance=ExtResource( 39 )]
-position = Vector2( 339.748, 356.918 )
+position = Vector2( 328.434, 359.746 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 230.535, 360.52 )

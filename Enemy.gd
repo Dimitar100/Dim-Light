@@ -14,6 +14,7 @@ var child_two
 var ready = true
 var direction = 1
 var on = true
+var start = false
 
 func _ready():
 	child_two = get_parent().get_parent().get_node("Mage")

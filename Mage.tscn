@@ -65,6 +65,6 @@ shape = SubResource( 3 )
 position = Vector2( 0, -82.6771 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 6 )
-color = Color( 0.411765, 0.411765, 0.411765, 1 )
+color = Color( 0.4, 0.4, 0.4, 1 )
 
 [connection signal="body_entered" from="Mage" to="." method="_on_Mage_body_entered"]

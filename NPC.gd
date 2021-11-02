@@ -12,6 +12,7 @@ var target = Vector2(0, 0)
 var end = false
 var fast = -1
 var direction = 1
+var start = false
 
 func _ready():
 	var root_node = get_parent()
@@ -27,7 +28,7 @@ func _apply_gravity(delta):
 	motion.y += GRAVITY*delta
 
 func _apply_movement(_delta):
-	if !end:
+	if !end && start:
 		if  global_position.x > target.x:
 			if fast > 0:
 				motion.x = -FAST_SPEED

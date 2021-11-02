@@ -9,7 +9,8 @@ func _ready():
 
 func _state_logic(delta):
 	parent._apply_gravity(delta)
-	parent._apply_movement(delta)
+	if parent.start:
+		parent._apply_movement(delta)
 
 func _get_transition(_delta):
 	match state:

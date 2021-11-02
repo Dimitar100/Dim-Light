@@ -32,7 +32,6 @@ extents = Vector2( 31.7861, 106.354 )
 extents = Vector2( 30.1101, 64.3196 )
 
 [node name="Mage" type="KinematicBody2D"]
-position = Vector2( 10.1514, 414.247 )
 scale = Vector2( 0.65, 0.65 )
 collision_layer = 17
 collision_mask = 17
@@ -62,7 +61,7 @@ collision_mask = 2
 shape = SubResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0, -82.6771 )
+position = Vector2( 0, 40 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 6 )
 color = Color( 0.4, 0.4, 0.4, 1 )

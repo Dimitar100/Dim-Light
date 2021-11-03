@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://knight/knight_walking_left/output-onlinepngtools(1).png" type="Texture" id=1]
 [ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(3).png" type="Texture" id=2]
@@ -39,6 +39,7 @@
 [ext_resource path="res://Atack_left.gd" type="Script" id=37]
 [ext_resource path="res://player.gd" type="Script" id=38]
 [ext_resource path="res://Atack_right.gd" type="Script" id=39]
+[ext_resource path="res://light/pictureLightMask_thumb.png" type="Texture" id=40]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
@@ -134,6 +135,7 @@ position = Vector2( 0.00012207, -50.0001 )
 script = ExtResource( 36 )
 
 [node name="Sprite_right" type="AnimatedSprite" parent="."]
+light_mask = 5
 position = Vector2( 0, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 2 )
@@ -142,6 +144,7 @@ playing = true
 
 [node name="Sprite_left" type="AnimatedSprite" parent="."]
 visible = false
+light_mask = 5
 position = Vector2( -65, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 3 )
@@ -178,6 +181,13 @@ __meta__ = {
 position = Vector2( -114.446, -19.1885 )
 shape = SubResource( 5 )
 disabled = true
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -28.7829, -8.22369 )
+scale = Vector2( 1.50256, 1.33123 )
+texture = ExtResource( 40 )
+energy = 0.7
+range_item_cull_mask = 4
 
 [connection signal="body_entered" from="Atack_right" to="Atack_right" method="_on_Atack_right_body_entered"]
 [connection signal="body_entered" from="Atack_left" to="Atack_left" method="_on_Atack_left_body_entered"]

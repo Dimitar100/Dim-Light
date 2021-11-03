@@ -17,5 +17,6 @@ region_rect = Rect2( 0, 0, 64, 64 )
 modulate = Color( 0.196078, 0.215686, 0.337255, 1 )
 
 [node name="solid" type="CollisionShape2D" parent="0/Ground"]
+visible = false
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )

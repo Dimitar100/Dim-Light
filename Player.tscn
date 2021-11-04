@@ -182,7 +182,7 @@ position = Vector2( -114.446, -19.1885 )
 shape = SubResource( 5 )
 disabled = true
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="EntityLight" type="Light2D" parent="."]
 position = Vector2( -28.7829, -8.22369 )
 scale = Vector2( 1.50256, 1.33123 )
 texture = ExtResource( 40 )

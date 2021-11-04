@@ -8,12 +8,12 @@ func _ready():
 	child = root_node.get_node("Sprite_left")
 
 func _physics_process(delta):
-	
-	if Input.is_action_just_pressed("ui_click_left") && child.visible :
-		$CollisionShape2D.disabled = false
-		child.play("Atack")
-		yield(get_tree().create_timer(25*delta), "timeout")
-		$CollisionShape2D.disabled = true
+	if get_parent().start:
+		if Input.is_action_just_pressed("ui_click_left") && child.visible :
+			$CollisionShape2D.disabled = false
+			child.play("Atack")
+			yield(get_tree().create_timer(15*delta), "timeout")
+			$CollisionShape2D.disabled = true
 
 
 

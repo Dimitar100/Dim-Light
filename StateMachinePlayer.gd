@@ -13,36 +13,40 @@ func _ready():
 	call_deferred("set_state", states.idle)
 	
 func _atack_done_check():
-	if parent.get_node("Sprite_right").get_animation() == "Atack" || parent.get_node("Sprite_left").get_animation() == "Atack":
-		if parent.get_node("Sprite_right").frame == parent.get_node("Sprite_right").frames.get_frame_count("Atack") - 1:
-			return true
-		elif parent.get_node("Sprite_left").frame == parent.get_node("Sprite_left").frames.get_frame_count("Atack") - 1:
-			return true
+	if parent.start:
+		if parent.get_node("Sprite_right").get_animation() == "Atack" || parent.get_node("Sprite_left").get_animation() == "Atack":
+			if parent.get_node("Sprite_right").frame == parent.get_node("Sprite_right").frames.get_frame_count("Atack") - 1:
+				return true
+			elif parent.get_node("Sprite_left").frame == parent.get_node("Sprite_left").frames.get_frame_count("Atack") - 1:
+				return true
+			else:
+				return false
 		else:
-			return false
-	else:
-		return true
+			return true
 
 func _input(_event):
-	if [states.idle, states.walk, states.atack].has(state):
-		#JUMP
-		if Input.is_action_pressed("ui_up"):
-			if parent.is_on_floor():
-				parent.motion.y = parent.JUMP
+	
+	if parent.start:
+		if [states.idle, states.walk, states.atack].has(state):
+			#JUMP
+			if Input.is_action_pressed("ui_up"):
+				if parent.is_on_floor():
+					parent.motion.y = parent.JUMP
 
-	if ![states.dead].has(state):
-			if Input.is_action_just_pressed("ui_click_left"):
-				atack = true
+		if ![states.dead].has(state):
+				if Input.is_action_just_pressed("ui_click_left"):
+					atack = true
 
 func _state_logic(delta):
+	
 	if _atack_done_check():
 		parent._handle_move_input()
 	else: 
 		if parent._is_falling():
 			parent._stop_movement()
-		
-	parent._apply_gravity(delta)
+	
 	parent._apply_movement(delta)
+	parent._apply_gravity(delta)
 
 func _get_transition(_delta):
 	match state:

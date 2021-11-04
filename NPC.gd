@@ -48,3 +48,4 @@ func _apply_movement(_delta):
 func _on_Mage_body_entered(body):
 	body.queue_free()
 	queue_free()
+	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://background/background2.png" type="Texture" id=3]
 [ext_resource path="res://Platform.tres" type="TileSet" id=4]
+[ext_resource path="res://KillPlayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://PlayBtn.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Mage.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Jump.tscn" type="PackedScene" id=42]
@@ -116,4 +117,8 @@ color = Color( 0, 0, 0, 1 )
 [node name="UI" type="Node" parent="."]
 
 [node name="PlayBtn" parent="UI" instance=ExtResource( 6 )]
-position = Vector2( 1050, 638 )
+position = Vector2( 1050, 643.657 )
+
+[node name="KillPlayer" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3350.11, 1868.02 )
+scale = Vector2( 6, 1 )

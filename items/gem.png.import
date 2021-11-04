@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ggez.png-8c34b8fcf40d527e3e93df8fd0125c8f.stex"
+path="res://.import/gem.png-6d44771252fda210297f78446dddc204.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/ggez.png"
-dest_files=[ "res://.import/ggez.png-8c34b8fcf40d527e3e93df8fd0125c8f.stex" ]
+source_file="res://items/gem.png"
+dest_files=[ "res://.import/gem.png-6d44771252fda210297f78446dddc204.stex" ]
 
 [params]
 

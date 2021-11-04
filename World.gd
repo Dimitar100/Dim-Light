@@ -3,7 +3,7 @@ extends Node
 var started = false
 
 func _ready():
-	$End.visible = false
+	pass
 	
 func _process(_delta):
 	

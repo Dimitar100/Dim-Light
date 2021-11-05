@@ -21,8 +21,11 @@ func _apply_gravity(delta):
 
 func _handle_move_input():
 	if start:
-		move_direction = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-		if move_direction == 0:
+		if !Input.is_action_just_pressed("ui_click_left"):
+			move_direction = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+			if move_direction == 0:
+				speed = 0
+		else:
 			speed = 0
 
 		if move_direction > 0:

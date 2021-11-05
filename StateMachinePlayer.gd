@@ -15,6 +15,7 @@ func _ready():
 func _atack_done_check():
 	if parent.start:
 		if parent.get_node("Sprite_right").get_animation() == "Atack" || parent.get_node("Sprite_left").get_animation() == "Atack":
+		#if !parent.get_node("Atack_right").get_node("CollisionShape2D").disabled || !parent.get_node("Atack_left").get_node("CollisionShape2D").disabled:
 			if parent.get_node("Sprite_right").frame == parent.get_node("Sprite_right").frames.get_frame_count("Atack") - 1:
 				return true
 			elif parent.get_node("Sprite_left").frame == parent.get_node("Sprite_left").frames.get_frame_count("Atack") - 1:
@@ -50,6 +51,25 @@ func _state_logic(delta):
 
 func _get_transition(_delta):
 	match state:
+		states.atack:
+			parent.speed = parent.JUMP_SPEED
+			if _atack_done_check():
+				if parent.get_node("Sprite_right").get_animation() == "Atack" && parent.get_node("Sprite_right").frame == parent.get_node("Sprite_right").frames.get_frame_count("Atack") - 1:
+					atack = false
+					return states.idle
+				elif parent.get_node("Sprite_left").get_animation() == "Atack" && parent.get_node("Sprite_left").frame == parent.get_node("Sprite_left").frames.get_frame_count("Atack") - 1:
+					atack = false
+					return states.idle
+				elif direction == 0 && parent.move_direction != 0:
+					atack = false
+					return states.idle
+				elif direction == (-1 * parent.move_direction) && (direction != 0 && parent.move_direction != 0):
+					atack = false
+					return states.walk
+				else:
+					#print("hi")
+					atack = false
+					return states.idle
 		states.idle:
 			parent.speed = parent.SPEED
 			if parent.is_on_floor():
@@ -92,21 +112,7 @@ func _get_transition(_delta):
 				return states.idle
 			elif atack:
 				return states.atack
-		states.atack:
-			parent.speed = parent.JUMP_SPEED
-			if _atack_done_check():
-				if parent.get_node("Sprite_right").get_animation() == "Atack" && parent.get_node("Sprite_right").frame == parent.get_node("Sprite_right").frames.get_frame_count("Atack") - 1:
-					atack = false
-					return states.idle
-				elif parent.get_node("Sprite_left").get_animation() == "Atack" && parent.get_node("Sprite_left").frame == parent.get_node("Sprite_left").frames.get_frame_count("Atack") - 1:
-					atack = false
-					return states.idle
-				elif direction == 0 && parent.move_direction != 0:
-					atack = false
-					return states.idle
-				elif direction == (-1 * parent.move_direction) && (direction != 0 && parent.move_direction != 0):
-					atack = false
-					return states.walk
+		
 	return null
 				
 func _enter_state(new_state, _old_state):

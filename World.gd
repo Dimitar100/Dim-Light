@@ -20,6 +20,7 @@ func _process(_delta):
 		$UI/PlayBtn/CollisionShape2D.disabled = true
 		$UI/PlayBtn/Sprite.visible = false
 		$UI/PlayBtn/Sprite2.visible = false
+		$UI/QiutBtn.queue_free()
 		started = true
 	
 

@@ -17,6 +17,7 @@ var on = true
 var start = false
 
 func _ready():
+	$EyeGlow.pause_mode = true
 	child_two = get_parent().get_parent().get_node("Mage")
 	if child_two == null:
 		queue_free()
@@ -29,6 +30,7 @@ func _ready():
 func _apply_gravity(delta):
 	if ready:
 		motion.y += GRAVITY*delta
+		
 
 func _apply_movement(_delta):
 	
@@ -56,6 +58,7 @@ func _apply_movement(_delta):
 		motion = move_and_slide(motion, UP)
 	else:
 		$AnimatedSprite.visible = false
+		
 
 	
 	

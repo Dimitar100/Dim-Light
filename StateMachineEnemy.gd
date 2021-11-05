@@ -51,6 +51,7 @@ func _enter_state(new_state, _old_state):
 			parent.get_node("AnimatedSprite").play("Idle")
 		states.sprint:
 			parent.get_node("AnimatedSprite").play("Sprint")
+			parent.get_node("EyeGlow").pause_mode = false
 		states.fall:
 			parent.get_node("AnimatedSprite").play("Fall")
 		states.jump:

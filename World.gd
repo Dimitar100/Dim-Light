@@ -15,12 +15,10 @@ func _process(_delta):
 		$Enemies/Enemy2.start = true
 		$Enemies/Enemy3.start = true
 		$Enemies/Enemy4.start = true
-		$Player.start = true
-			
-		$UI/PlayBtn/CollisionShape2D.disabled = true
-		$UI/PlayBtn/Sprite.visible = false
-		$UI/PlayBtn/Sprite2.visible = false
-		$UI/QiutBtn.queue_free()
+		
+		$UI/PlayBtn/.visible = false
+		$UI/QiutBtn.visible = false
 		started = true
+		$Player.start = true
 	
 

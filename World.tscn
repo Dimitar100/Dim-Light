@@ -48,7 +48,7 @@ position = Vector2( 7404.8, 486.293 )
 position = Vector2( 9910.8, 487.07 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 558.573, 601.509 )
+position = Vector2( 553.089, 602.462 )
 
 [node name="Jumps" type="Node" parent="."]
 
@@ -109,7 +109,7 @@ direction = -1
 position = Vector2( 5047.29, 538.782 )
 
 [node name="UICamera" type="Camera2D" parent="."]
-position = Vector2( 800, 617.39 )
+position = Vector2( 796.413, 611.425 )
 current = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -120,4 +120,4 @@ position = Vector2( 3350.11, 1868.02 )
 scale = Vector2( 6, 1 )
 
 [node name="UI" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1078.53, 495.829 )
+position = Vector2( 1070.68, 503.446 )

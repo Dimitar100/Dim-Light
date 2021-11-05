@@ -6,8 +6,13 @@
 [node name="UI" type="Node2D"]
 
 [node name="QiutBtn" parent="." instance=ExtResource( 1 )]
-position = Vector2( 7.43561, 191.465 )
-scale = Vector2( 0.7, 0.7 )
+margin_left = -80.8187
+margin_top = 155.114
+margin_right = 81.1813
+margin_bottom = 229.114
 
 [node name="PlayBtn" parent="." instance=ExtResource( 2 )]
-position = Vector2( 7.55954, 99.5338 )
+margin_left = -118.969
+margin_top = 28.5268
+margin_right = 119.031
+margin_bottom = 133.527

@@ -12,6 +12,9 @@ var start = false
 var motion = Vector2(0, 0)
 var move_direction = 0
 
+func _ready():
+	$Sprite_right.visible = true
+
 func _play_anim(anim):
 	$Sprite_left.play(anim)
 	$Sprite_right.play(anim)

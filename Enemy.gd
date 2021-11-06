@@ -16,25 +16,28 @@ var direction = 1
 var on = true
 var start = false
 
+export var tutorial = false
+
 func _ready():
-	$EyeGlow.pause_mode = true
-	child_two = get_parent().get_parent().get_node("Mage")
-	if child_two == null:
-		queue_free()
-	else:
-		target = child_two.global_position
-		if  global_position.x > target.x:
-			$AnimatedSprite.flip_h = true
-			direction = -1
+	if !tutorial:
+		$EyeGlow.pause_mode = true
+		child_two = get_parent().get_parent().get_node("Mage")
+		if child_two == null:
+			queue_free()
+		else:
+			target = child_two.global_position
+			if  global_position.x > target.x:
+				$AnimatedSprite.flip_h = true
+				direction = -1
 
 func _apply_gravity(delta):
-	if ready:
+	if ready && !tutorial:
 		motion.y += GRAVITY*delta
 		
 
 func _apply_movement(_delta):
 	
-	if ready:
+	if ready && !tutorial:
 		$CollisionShape2D.disabled = false
 		child_two = get_parent().get_parent().get_node("Mage")
 		if child_two == null:
@@ -57,7 +60,7 @@ func _apply_movement(_delta):
 
 		motion = move_and_slide(motion, UP)
 	else:
-		$AnimatedSprite.visible = false
+		$AnimatedSprite.play("Idle")
 		
 
 	

@@ -5,6 +5,7 @@ func _ready():
 	add_state("sprint")
 	add_state("fall")
 	add_state("jump")
+	add_state("tutorial")
 	call_deferred("set_state", states.idle)
 
 func _state_logic(delta):
@@ -15,7 +16,9 @@ func _state_logic(delta):
 func _get_transition(_delta):
 	match state:
 		states.idle:
-			if !parent.is_on_floor():
+			if parent.tutorial:
+				return states.tutorial
+			elif !parent.is_on_floor():
 				if parent.motion.y > 0:
 					return states.fall
 				elif parent.motion.y <= 0:
@@ -48,6 +51,8 @@ func _get_transition(_delta):
 func _enter_state(new_state, _old_state):
 	match new_state:
 		states.idle:
+			parent.get_node("AnimatedSprite").play("Idle")
+		states.tutorial:
 			parent.get_node("AnimatedSprite").play("Idle")
 		states.sprint:
 			parent.get_node("AnimatedSprite").play("Sprint")

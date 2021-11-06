@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://knight/knight_walking_left/output-onlinepngtools(1).png" type="Texture" id=1]
 [ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(3).png" type="Texture" id=2]
@@ -41,14 +41,10 @@
 [ext_resource path="res://Atack_right.gd" type="Script" id=39]
 [ext_resource path="res://light/pictureLightMask_thumb.png" type="Texture" id=40]
 
-[sub_resource type="StreamTexture" id=1]
-flags = 4
-load_path = "res://.import/walking_right(1).png-3b8f0ad27cf4edde51a56ebe350c5a60.stex"
-
 [sub_resource type="SpriteFrames" id=2]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ SubResource( 1 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
@@ -188,6 +184,8 @@ scale = Vector2( 1.50256, 1.33123 )
 texture = ExtResource( 40 )
 energy = 0.7
 range_item_cull_mask = 4
+
+[node name="Node2D" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="Atack_right" to="Atack_right" method="_on_Atack_right_body_entered"]
 [connection signal="body_entered" from="Atack_left" to="Atack_left" method="_on_Atack_left_body_entered"]

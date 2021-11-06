@@ -16,8 +16,7 @@ func _process(_delta):
 		$Enemies/Enemy3.start = true
 		$Enemies/Enemy4.start = true
 		
-		$UI/PlayBtn/.visible = false
-		$UI/QiutBtn.visible = false
+		$UI.visible = false
 		started = true
 		$Player.start = true
 	

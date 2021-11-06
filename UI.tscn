@@ -1,18 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://QiutBtn.tscn" type="PackedScene" id=1]
 [ext_resource path="res://PlayBtn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://TutorialButton.tscn" type="PackedScene" id=3]
 
 [node name="UI" type="Node2D"]
 
 [node name="QiutBtn" parent="." instance=ExtResource( 1 )]
-margin_left = -80.8187
-margin_top = 155.114
-margin_right = 81.1813
-margin_bottom = 229.114
+margin_left = -80.2908
+margin_top = 144.329
+margin_right = 81.7092
+margin_bottom = 218.329
 
 [node name="PlayBtn" parent="." instance=ExtResource( 2 )]
-margin_left = -118.969
-margin_top = 28.5268
-margin_right = 119.031
-margin_bottom = 133.527
+margin_left = -119.0
+margin_top = -48.7826
+margin_right = 119.0
+margin_bottom = 55.2174
+
+[node name="TutorailButton" parent="." instance=ExtResource( 3 )]
+margin_left = -126.0
+margin_top = 68.8803
+margin_right = 129.0
+margin_bottom = 130.88

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/totrial_hover.png-0c552b6d47d3423d24805e5fc3fe84c3.stex"
+path="res://.import/Guide_attack.png-0b0c86c538c6a3e7124b9731415530de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/totrial_hover.png"
-dest_files=[ "res://.import/totrial_hover.png-0c552b6d47d3423d24805e5fc3fe84c3.stex" ]
+source_file="res://background/Guide_attack.png"
+dest_files=[ "res://.import/Guide_attack.png-0b0c86c538c6a3e7124b9731415530de.stex" ]
 
 [params]
 

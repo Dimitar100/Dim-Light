@@ -9,10 +9,10 @@ light_mode = 1
 
 [node name="PlayButton" type="TextureButton"]
 material = SubResource( 4 )
-margin_left = -112.286
-margin_top = -48.5403
-margin_right = 127.714
-margin_bottom = 56.4597
+margin_left = -112.0
+margin_top = -49.0
+margin_right = 140.0
+margin_bottom = 53.0
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 4 )
 script = ExtResource( 1 )

@@ -9,10 +9,10 @@ light_mode = 1
 
 [node name="QuitBtn" type="TextureButton"]
 material = SubResource( 1 )
-margin_left = -80.2715
-margin_top = -36.2708
-margin_right = 81.7285
-margin_bottom = 37.7292
+margin_left = -127.568
+margin_top = -30.054
+margin_right = 126.432
+margin_bottom = 25.946
 texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 1 )
 script = ExtResource( 3 )

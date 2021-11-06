@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Platform.tres" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Tutorial.gd" type="Script" id=8]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://background/Guide_movement.png" type="Texture" id=10]
+[ext_resource path="res://background/Guide_attack.png" type="Texture" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "decoration_test.png 0"
@@ -45,7 +46,7 @@
 script = ExtResource( 8 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 4880.08, 579.216 )
+position = Vector2( 4868.76, 582.048 )
 scale = Vector2( 9.11166, 1.74083 )
 texture = ExtResource( 5 )
 
@@ -61,25 +62,30 @@ tile_set = SubResource( 1 )
 format = 1
 tile_data = PoolIntArray( 131109, 0, 0, 131110, 0, 0, 131132, 0, 0, 131133, 0, 0, 196621, 0, 0, 196622, 0, 0, 196638, 0, 0, 196639, 0, 0, 196640, 0, 0, 196644, 0, 0, 196645, 0, 0, 196650, 0, 0, 196651, 0, 0, 196656, 0, 0, 196657, 0, 0, 196658, 0, 0, 196667, 0, 0, 196668, 0, 0, 196679, 0, 0, 196680, 0, 0, 196692, 0, 0, 196698, 0, 0, 196699, 0, 0, 262167, 0, 0, 262168, 0, 0, 262169, 0, 0, 262173, 0, 0, 262174, 0, 0, 262191, 0, 0, 262192, 0, 0, 262218, 0, 0, 262224, 0, 0, 262225, 0, 0, 262237, 0, 0, 262238, 0, 0, 327688, 0, 0, 327689, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 0, 0, 327720, 0, 0, 327722, 0, 0, 327723, 0, 0, 327724, 0, 0, 327733, 0, 0, 327734, 0, 0, 327735, 0, 0, 327741, 0, 0, 327742, 0, 0, 327746, 0, 0, 327747, 0, 0, 327748, 0, 0, 327761, 0, 0, 327762, 0, 0, 327774, 0, 0, 327775, 0, 0, 393219, 0, 0, 393220, 0, 0, 393223, 0, 0, 393224, 0, 0, 393231, 0, 0, 393232, 0, 0, 393235, 0, 0, 393236, 0, 0, 393247, 0, 0, 393248, 0, 0, 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 393255, 0, 0, 393259, 0, 0, 393260, 0, 0, 393261, 0, 0, 393268, 0, 0, 393269, 0, 0, 393270, 0, 0, 393283, 0, 0, 393284, 0, 0, 393285, 0, 0, 393291, 0, 0, 393292, 0, 0, 393303, 0, 0, 393304, 0, 0, 524287, 0, 0, 458752, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458788, 0, 0, 458789, 0, 0, 458809, 0, 0, 458810, 0, 0, 458826, 0, 0, 458827, 0, 0, 458848, 0, 0, 524288, 0, 0, 524289, 0, 0, 524298, 0, 0, 524299, 0, 0, 524301, 0, 0, 524309, 0, 0, 524310, 0, 0, 524315, 0, 0, 524316, 0, 0, 524329, 0, 0, 524330, 0, 0, 524335, 0, 0, 524336, 0, 0, 524346, 0, 0, 524351, 0, 0, 524352, 0, 0, 524368, 0, 0, 524369, 0, 0, 524370, 0, 0, 589850, 0, 0, 589851, 0, 0, 589864, 0, 0, 589865, 0, 0, 589876, 0, 0, 589877, 0, 0, 589886, 0, 0, 589887, 0, 0, 655413, 0, 0, 655414, 0, 0, 655432, 0, 0, 655434, 0, 0, 655435, 0, 0, 720967, 0, 0, 720968, 0, 0, 720985, 0, 0, 720986, 0, 0, 786434, 1, 0, 786435, 1, 0, 786442, 1, 0, 786443, 1, 0, 786452, 1, 0, 786453, 1, 0, 786460, 1, 0, 786468, 1, 0, 786472, 1, 0, 786473, 1, 0, 786474, 1, 0, 786503, 0, 0, 851977, 1, 0, 851978, 1, 0, 851983, 1, 0, 851984, 1, 0, 851989, 1, 0, 851990, 1, 0, 851995, 1, 0, 851996, 1, 0, 852002, 1, 0, 852003, 1, 0, 852009, 1, 0, 852010, 1, 0, 852011, 1, 0, 852012, 1, 0, 917518, 1, 0, 917519, 1, 0, 917531, 1, 0, 917537, 1, 0, 917538, 1, 0 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 749.666, 467.39 )
+[node name="GuideMovement" type="Sprite" parent="."]
+position = Vector2( 595.758, 471.446 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 10 )
+
+[node name="GuideAttack" type="Sprite" parent="."]
+position = Vector2( 1230.47, 516.792 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 11 )
 
 [node name="End" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2026.24, 640.305 )
 tutorial = true
 
 [node name="Mage" parent="." instance=ExtResource( 6 )]
-position = Vector2( 425, 649 )
+position = Vector2( 415.561, 649.944 )
 SPEED = 200
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 568.355, 648.524 )
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1532.87, 621.399 )
 tutorial = true
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 568.355, 648.524 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0, 0, 0, 1 )

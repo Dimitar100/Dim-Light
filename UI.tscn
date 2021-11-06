@@ -7,19 +7,19 @@
 [node name="UI" type="Node2D"]
 
 [node name="QiutBtn" parent="." instance=ExtResource( 1 )]
-margin_left = -80.2908
-margin_top = 144.329
-margin_right = 81.7092
-margin_bottom = 218.329
+margin_left = -126.706
+margin_top = 133.238
+margin_right = 127.294
+margin_bottom = 189.238
 
 [node name="PlayBtn" parent="." instance=ExtResource( 2 )]
-margin_left = -119.0
-margin_top = -48.7826
-margin_right = 119.0
-margin_bottom = 55.2174
+margin_left = -126.088
+margin_top = -47.7716
+margin_right = 125.912
+margin_bottom = 54.2284
 
 [node name="TutorailButton" parent="." instance=ExtResource( 3 )]
-margin_left = -126.0
-margin_top = 68.8803
-margin_right = 129.0
-margin_bottom = 130.88
+margin_left = -127.0
+margin_top = 66.0
+margin_right = 128.0
+margin_bottom = 122.0

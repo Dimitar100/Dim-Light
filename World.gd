@@ -12,9 +12,6 @@ func _process(_delta):
 		$Player/Camera2D.current = true
 		$Mage.start = true
 		$Enemies/Enemy.start = true
-		$Enemies/Enemy2.start = true
-		$Enemies/Enemy3.start = true
-		$Enemies/Enemy4.start = true
 		
 		$UI.visible = false
 		started = true

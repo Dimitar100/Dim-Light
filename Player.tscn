@@ -41,7 +41,7 @@
 [ext_resource path="res://Atack_right.gd" type="Script" id=39]
 [ext_resource path="res://light/pictureLightMask_thumb.png" type="Texture" id=40]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 resource_local_to_scene = true
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
@@ -49,20 +49,20 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 15 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 10.0
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 23 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 28 ), ExtResource( 16 ), ExtResource( 32 ), ExtResource( 29 ) ],
 "loop": false,
 "name": "Atack",
 "speed": 14.0
 }, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
+"frames": [ ExtResource( 24 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 33 ), ExtResource( 6 ) ],
 "loop": true,
@@ -75,43 +75,43 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 14 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 10.0
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 31 ) ],
 "loop": false,
 "name": "Atack",
 "speed": 14.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 20 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 34 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 8.0
+"frames": [ ExtResource( 35 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 31 ), ExtResource( 4 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 27 ) ],
 "loop": false,
 "name": "DoubleAtack",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 20 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 34 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32.0431, 90.1898 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 30.2984, 54.5701 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -134,7 +134,7 @@ script = ExtResource( 36 )
 light_mask = 5
 position = Vector2( 0, 1 )
 scale = Vector2( 0.75, 0.75 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "Fall"
 playing = true
 
@@ -143,14 +143,14 @@ visible = false
 light_mask = 5
 position = Vector2( -65, 1 )
 scale = Vector2( 0.75, 0.75 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 animation = "Fall"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -32.218, -4.6 )
 scale = Vector2( 1, 0.99 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Atack_right" type="Area2D" parent="."]
 collision_layer = 32
@@ -162,7 +162,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Atack_right"]
 position = Vector2( 50.7127, -17.1327 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="Atack_left" type="Area2D" parent="."]
@@ -175,7 +175,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Atack_left"]
 position = Vector2( -114.446, -19.1885 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="EntityLight" type="Light2D" parent="."]

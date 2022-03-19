@@ -60,6 +60,9 @@ func _get_transition(_delta):
 				elif parent.get_node("Sprite_left").get_animation() == "Atack" && parent.get_node("Sprite_left").frame == parent.get_node("Sprite_left").frames.get_frame_count("Atack") - 1:
 					atack = false
 					return states.idle
+				elif !parent.is_on_floor():
+					atack = false
+					return states.fall
 				elif direction == 0 && parent.move_direction != 0:
 					atack = false
 					return states.idle

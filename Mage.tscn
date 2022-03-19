@@ -8,15 +8,10 @@
 [ext_resource path="res://light/pictureLightMask_thumb.png" type="Texture" id=6]
 [ext_resource path="res://light/light4.png" type="Texture" id=7]
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=1]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Walking",
@@ -26,12 +21,17 @@ animations = [ {
 "loop": true,
 "name": "Falling",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 31.7861, 106.354 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 30.1101, 64.3196 )
 
 [node name="Mage" type="KinematicBody2D"]
@@ -48,22 +48,22 @@ script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 light_mask = 9
-material = SubResource( 4 )
+material = SubResource( 1 )
 scale = Vector2( 0.75, 0.75 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "Falling"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -1.1 )
 scale = Vector2( 1, 0.8 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Mage" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mage"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 43.0927, -69.0089 )

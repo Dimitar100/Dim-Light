@@ -38,27 +38,28 @@ func _apply_gravity(delta):
 func _apply_movement(_delta):
 	
 	if ready && !tutorial:
-		$CollisionShape2D.disabled = false
-		child_two = get_parent().get_parent().get_node("Mage")
-		if child_two == null:
-			queue_free()
-		else:
-			target = child_two.global_position
+		#$CollisionShape2D.disabled = false
+		#child_two = get_parent().get_parent().get_node("Mage")
+		#if child_two == null:
+		#	queue_free()
+		#else:
+		#	target = child_two.global_position
 		
-		if  global_position.x > target.x:
-			if fast > 0:
-				motion.x = -FAST_SPEED
-			else:	
-				motion.x = -SPEED
-		elif global_position.x < target.x:
-			if fast > 0:
-				motion.x = FAST_SPEED
-			else:	
-				motion.x = SPEED
-		else:
-			motion.x = 0
+		#if  global_position.x > target.x:
+		#	if fast > 0:
+		#		motion.x = -FAST_SPEED
+		#	else:	
+		#		motion.x = -SPEED
+		#elif global_position.x < target.x:
+		#	if fast > 0:
+		#		motion.x = FAST_SPEED
+		#	else:	
+		#		motion.x = SPEED
+		#else:
+		#	motion.x = 0
 
-		motion = move_and_slide(motion, UP)
+		#motion = move_and_slide(motion, UP)
+		$AnimatedSprite.play("Idle")
 	else:
 		$AnimatedSprite.play("Idle")
 		

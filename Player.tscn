@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://knight/knight_walking_left/output-onlinepngtools(1).png" type="Texture" id=1]
 [ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(3).png" type="Texture" id=2]
@@ -41,6 +41,9 @@
 [ext_resource path="res://Atack_right.gd" type="Script" id=39]
 [ext_resource path="res://light/pictureLightMask_thumb.png" type="Texture" id=40]
 
+[sub_resource type="CanvasItemMaterial" id=5]
+light_mode = 1
+
 [sub_resource type="SpriteFrames" id=1]
 resource_local_to_scene = true
 animations = [ {
@@ -48,6 +51,11 @@ animations = [ {
 "loop": true,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
@@ -58,11 +66,6 @@ animations = [ {
 "loop": false,
 "name": "Atack",
 "speed": 14.0
-}, {
-"frames": [ ExtResource( 24 ), ExtResource( 15 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 10.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 33 ), ExtResource( 6 ) ],
 "loop": true,
@@ -75,12 +78,20 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="CanvasItemMaterial" id=6]
+light_mode = 1
+
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
@@ -92,20 +103,15 @@ animations = [ {
 "name": "Atack",
 "speed": 14.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 14 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 10.0
+"frames": [ ExtResource( 1 ), ExtResource( 20 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 34 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 31 ), ExtResource( 4 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 27 ) ],
 "loop": false,
 "name": "DoubleAtack",
 "speed": 12.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 20 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 34 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 8.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -132,6 +138,7 @@ script = ExtResource( 36 )
 
 [node name="Sprite_right" type="AnimatedSprite" parent="."]
 light_mask = 5
+material = SubResource( 5 )
 position = Vector2( 0, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 1 )
@@ -141,6 +148,7 @@ playing = true
 [node name="Sprite_left" type="AnimatedSprite" parent="."]
 visible = false
 light_mask = 5
+material = SubResource( 6 )
 position = Vector2( -65, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 2 )
@@ -179,8 +187,8 @@ shape = SubResource( 4 )
 disabled = true
 
 [node name="EntityLight" type="Light2D" parent="."]
-position = Vector2( -28.7829, -8.22369 )
-scale = Vector2( 1.50256, 1.33123 )
+position = Vector2( -35.1864, -21.9453 )
+scale = Vector2( 1.29674, 1.21688 )
 texture = ExtResource( 40 )
 energy = 0.7
 range_item_cull_mask = 4

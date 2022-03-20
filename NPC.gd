@@ -19,6 +19,7 @@ var fast = -1
 var direction = 1
 var start = false
 var child_two
+var stop = false
 
 func _ready():
 	var root_node = get_parent()
@@ -34,7 +35,11 @@ func _apply_gravity(delta):
 	motion.y += GRAVITY*delta
 
 func _apply_movement(_delta):
-	if !end && start:
+	
+	if Input.is_action_just_pressed("ui_space"):
+		stop = !stop
+	
+	if !end && start && !stop:
 		if  global_position.x >  child_two.global_position.x:
 			if fast > 0:
 				motion.x = -FAST_SPEED

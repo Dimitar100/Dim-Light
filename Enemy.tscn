@@ -17,7 +17,7 @@
 [sub_resource type="CanvasItemMaterial" id=2]
 light_mode = 1
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
@@ -62,7 +62,7 @@ script = ExtResource( 7 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 light_mask = 3
 material = SubResource( 2 )
-frames = SubResource( 3 )
+frames = SubResource( 5 )
 animation = "Idle"
 flip_h = true
 

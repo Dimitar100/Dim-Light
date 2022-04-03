@@ -41,17 +41,12 @@
 [ext_resource path="res://Atack_right.gd" type="Script" id=39]
 [ext_resource path="res://light/pictureLightMask_thumb.png" type="Texture" id=40]
 
-[sub_resource type="CanvasItemMaterial" id=5]
+[sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 24 ), ExtResource( 15 ) ],
 "loop": false,
 "name": "Jump",
@@ -76,18 +71,18 @@ animations = [ {
 "loop": false,
 "name": "Step",
 "speed": 10.0
-} ]
-
-[sub_resource type="CanvasItemMaterial" id=6]
-light_mode = 1
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 1 ) ],
+}, {
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
-}, {
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
 "frames": [ ExtResource( 35 ), ExtResource( 14 ) ],
 "loop": false,
 "name": "Jump",
@@ -112,12 +107,17 @@ animations = [ {
 "loop": false,
 "name": "DoubleAtack",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 32.0431, 90.1898 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 30.2984, 54.5701 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -138,27 +138,27 @@ script = ExtResource( 36 )
 
 [node name="Sprite_right" type="AnimatedSprite" parent="."]
 light_mask = 5
-material = SubResource( 5 )
+material = SubResource( 1 )
 position = Vector2( 0, 1 )
 scale = Vector2( 0.75, 0.75 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "Fall"
 playing = true
 
 [node name="Sprite_left" type="AnimatedSprite" parent="."]
 visible = false
 light_mask = 5
-material = SubResource( 6 )
+material = SubResource( 3 )
 position = Vector2( -65, 1 )
 scale = Vector2( 0.75, 0.75 )
-frames = SubResource( 2 )
+frames = SubResource( 4 )
 animation = "Fall"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -32.218, -4.6 )
 scale = Vector2( 1, 0.99 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="Atack_right" type="Area2D" parent="."]
 collision_layer = 32
@@ -170,7 +170,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Atack_right"]
 position = Vector2( 50.7127, -17.1327 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 disabled = true
 
 [node name="Atack_left" type="Area2D" parent="."]
@@ -183,7 +183,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Atack_left"]
 position = Vector2( -114.446, -19.1885 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 disabled = true
 
 [node name="EntityLight" type="Light2D" parent="."]

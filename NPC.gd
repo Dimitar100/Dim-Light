@@ -81,8 +81,8 @@ func _apply_movement(_delta):
 	motion = move_and_slide(motion, UP)
 
 
-func _on_Mage_body_entered(body):
-	body.queue_free()
+func _on_Mage_body_entered(_body):
+	#body.queue_free()
 	queue_free()
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://GameOver.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://tiles/glowing_decorations/glow_plant_base_64.png" type="Texture" id=16]
 [ext_resource path="res://tiles/glowing_decorations/purpule_vine_start_end_64.png" type="Texture" id=17]
 [ext_resource path="res://gem.tscn" type="PackedScene" id=18]
+[ext_resource path="res://background/arrow.png" type="Texture" id=19]
 [ext_resource path="res://Mage.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Jump.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Boost.tscn" type="PackedScene" id=48]
@@ -223,6 +224,8 @@ tile_data = PoolIntArray( -65510, 0, 0, -65509, 0, 0, -65506, 0, 0, -65505, 0, 0
 [node name="Gem" parent="." instance=ExtResource( 18 )]
 position = Vector2( 6644.38, 510.261 )
 scale = Vector2( 0.25, 0.25 )
+collision_layer = 4
+collision_mask = 4
 
 [node name="End" parent="." instance=ExtResource( 49 )]
 position = Vector2( 6143.86, 1340.74 )
@@ -235,7 +238,7 @@ FAST_SPEED = 400
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 2299.88, 486.513 )
-FAST_SPEED = 300
+FAST_SPEED = 250
 point1 = 2185
 point2 = 3165
 
@@ -328,4 +331,10 @@ position = Vector2( 3569.09, 1868.02 )
 scale = Vector2( 6, 1 )
 
 [node name="UI" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1120.15, 499.354 )
+position = Vector2( 1084.87, 496.834 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.580392, 0.52549, 0.52549, 1 )
+position = Vector2( 4595.56, 556.231 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 19 )

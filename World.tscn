@@ -259,6 +259,8 @@ position = Vector2( 422.117, 606.682 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 562.894, 605.012 )
+collision_layer = 260
+collision_mask = 260
 
 [node name="Jumps" type="Node" parent="."]
 

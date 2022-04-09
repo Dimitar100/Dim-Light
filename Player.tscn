@@ -41,10 +41,10 @@
 [ext_resource path="res://Atack_right.gd" type="Script" id=39]
 [ext_resource path="res://light/pictureLightMask_thumb.png" type="Texture" id=40]
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id=7]
 light_mode = 1
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=8]
 resource_local_to_scene = true
 animations = [ {
 "frames": [ ExtResource( 24 ), ExtResource( 15 ) ],
@@ -78,10 +78,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CanvasItemMaterial" id=3]
+[sub_resource type="CanvasItemMaterial" id=9]
 light_mode = 1
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
 "frames": [ ExtResource( 35 ), ExtResource( 14 ) ],
 "loop": false,
@@ -138,20 +138,20 @@ script = ExtResource( 36 )
 
 [node name="Sprite_right" type="AnimatedSprite" parent="."]
 light_mask = 5
-material = SubResource( 1 )
+material = SubResource( 7 )
 position = Vector2( 0, 1 )
 scale = Vector2( 0.75, 0.75 )
-frames = SubResource( 2 )
+frames = SubResource( 8 )
 animation = "Fall"
 playing = true
 
 [node name="Sprite_left" type="AnimatedSprite" parent="."]
 visible = false
 light_mask = 5
-material = SubResource( 3 )
+material = SubResource( 9 )
 position = Vector2( -65, 1 )
 scale = Vector2( 0.75, 0.75 )
-frames = SubResource( 4 )
+frames = SubResource( 10 )
 animation = "Fall"
 playing = true
 

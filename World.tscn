@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://tiles/glowing_decorations/purpule_vine_start_end_64.png" type="Texture" id=17]
 [ext_resource path="res://gem.tscn" type="PackedScene" id=18]
 [ext_resource path="res://background/arrow.png" type="Texture" id=19]
+[ext_resource path="res://UndeadWarrior.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Mage.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Jump.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Boost.tscn" type="PackedScene" id=48]
@@ -242,6 +243,9 @@ rotation = -0.0872665
 FAST_SPEED = 250
 point1 = 2185
 point2 = 3165
+
+[node name="UndeadWarrior" parent="." instance=ExtResource( 20 )]
+position = Vector2( 4795.53, 1223.64 )
 
 [node name="Mage" parent="." instance=ExtResource( 39 )]
 position = Vector2( 422.117, 606.682 )

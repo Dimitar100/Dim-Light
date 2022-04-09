@@ -23,16 +23,6 @@ export var tutorial = false
 
 func _ready():
 	pass
-	#if !tutorial:
-	#	$EyeGlow.pause_mode = true
-	#	child_two = get_parent().get_parent().get_node("Mage")
-	#	if child_two == null:
-	#		queue_free()
-	#	else:
-	#		target = child_two.global_position
-	#		if  global_position.x > target.x:
-	#			$AnimatedSprite.flip_h = true
-	#			direction = -1
 
 func _apply_gravity(delta):
 	if ready && !tutorial:
@@ -42,27 +32,6 @@ func _apply_gravity(delta):
 func _apply_movement(_delta):
 	
 	if ready && !tutorial:
-		#$CollisionShape2D.disabled = false
-		#child_two = get_parent().get_parent().get_node("Mage")
-		#if child_two == null:
-		#	queue_free()
-		#else:
-		#	target = child_two.global_position
-		
-		#if  global_position.x > target.x:
-		#	if fast > 0:
-		#		motion.x = -FAST_SPEED
-		#	else:	
-		#		motion.x = -SPEED
-		#elif global_position.x < target.x:
-		#	if fast > 0:
-		#		motion.x = FAST_SPEED
-		#	else:	
-		#		motion.x = SPEED
-		#else:
-		#	motion.x = 0
-		
-		#$CollisionShape2D.disabled = false
 		
 		if  global_position.x >= point1 && direction == -1:
 			$AnimatedSprite.flip_h = true

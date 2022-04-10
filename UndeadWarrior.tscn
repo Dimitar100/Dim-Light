@@ -64,6 +64,7 @@ script = ExtResource( 16 )
 __meta__ = {
 "_edit_group_": true
 }
+SPEED = 200
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 17 )
@@ -71,8 +72,7 @@ script = ExtResource( 17 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )
 frames = SubResource( 2 )
-animation = "Attack"
-frame = 14
+animation = "Idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -85,6 +85,7 @@ collision_layer = 256
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+visible = false
 shape = SubResource( 4 )
 
 [connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]

@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 const UP = Vector2(0, -1)
-const SPEED = 200
 export var FAST_SPEED = 600
 const GRAVITY = 2000
 
@@ -13,6 +12,7 @@ var in_range = false
 export var point1 = 4916
 export var point2 = 6300
 export var tutorial = false
+export var SPEED = 150
 
 func _ready():
 	pass
@@ -47,7 +47,11 @@ func _apply_movement(_delta):
 	if in_range:
 		$AnimatedSprite.play("Attack")
 	else:
-		$AnimatedSprite.play("Walk")
+		if $AnimatedSprite.animation == "Attack":
+			if $AnimatedSprite.frame == $AnimatedSprite.frames.get_frame_count("Attack")-1:
+				$AnimatedSprite.play("Walk")
+		else:
+			$AnimatedSprite.play("Walk")
 		
 
 	

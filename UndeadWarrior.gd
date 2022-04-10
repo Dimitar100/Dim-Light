@@ -44,14 +44,14 @@ func _apply_movement(_delta):
 	else:
 		$AnimatedSprite.play("Idle")
 	
-	#if in_range:
-	#	$AnimatedSprite.play("AttackV2")
-	#else:
-	#	if $AnimatedSprite.animation == "AttackV2":
-	#		if $AnimatedSprite.frame == $AnimatedSprite.frames.get_frame_count("Attack")-1:
-	#			$AnimatedSprite.play("Walk")
-	#	else:
-	#		$AnimatedSprite.play("Walk")
+	if in_range:
+		$AnimatedSprite.play("AttackV2")
+	else:
+		if $AnimatedSprite.animation == "AttackV2":
+			if $AnimatedSprite.frame == $AnimatedSprite.frames.get_frame_count("AttackV2")-1:
+				$AnimatedSprite.play("WalkV2")
+		else:
+			$AnimatedSprite.play("WalkV2")
 		
 
 	

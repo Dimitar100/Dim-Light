@@ -142,8 +142,7 @@ material = SubResource( 1 )
 position = Vector2( 0, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 2 )
-animation = "Walk"
-frame = 5
+animation = "Idle"
 playing = true
 
 [node name="Sprite_left" type="AnimatedSprite" parent="."]

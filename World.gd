@@ -3,7 +3,8 @@ extends Node
 var started = false
 
 func _ready():
-	$CanvasModulate.visible = true
+	pass
+	#$CanvasModulate.visible = true
 	
 func _process(_delta):
 	

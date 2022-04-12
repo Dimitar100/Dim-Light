@@ -1,5 +1,6 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
+[ext_resource path="res://Undead_Warrior_Attack_left.gd" type="Script" id=1]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_1.png" type="Texture" id=14]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_6.png" type="Texture" id=15]
 [ext_resource path="res://UndeadWarrior.gd" type="Script" id=16]
@@ -54,10 +55,13 @@ animations = [ {
 extents = Vector2( 20.8235, 59.6316 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 145.995, 53.4798 )
+extents = Vector2( 169.618, 144.619 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 27.9194, 20.6667 )
 
 [node name="UndeadWarrior" type="KinematicBody2D"]
-position = Vector2( 4.00452, -6.6742 )
+position = Vector2( 4.75367, -6.6742 )
 script = ExtResource( 16 )
 __meta__ = {
 "_edit_group_": true
@@ -70,7 +74,8 @@ script = ExtResource( 17 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )
 frames = SubResource( 2 )
-animation = "Idle"
+animation = "WalkV2"
+frame = 9
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -79,12 +84,33 @@ position = Vector2( 28.7068, -4.01387 )
 shape = SubResource( 3 )
 
 [node name="Range" type="Area2D" parent="."]
+visible = false
 collision_layer = 256
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
-visible = false
+position = Vector2( 12.3471, -76.3274 )
 shape = SubResource( 4 )
+
+[node name="Attack_left" type="Area2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_left"]
+position = Vector2( -52, 11 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="Attack_right" type="Area2D" parent="."]
+position = Vector2( 120.614, -0.749161 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_right"]
+position = Vector2( -69, 11 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 2.5
 
 [connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_AttackCooldown_timeout"]

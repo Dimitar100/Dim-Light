@@ -79,3 +79,5 @@ func _on_Range_body_exited(_body):
 
 func _on_AttackCooldown_timeout():
 	cooldown = false
+
+

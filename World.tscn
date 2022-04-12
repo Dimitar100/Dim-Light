@@ -249,13 +249,6 @@ FAST_SPEED = 250
 point1 = 2185
 point2 = 3165
 
-[node name="UndeadWarrior" parent="." instance=ExtResource( 20 )]
-position = Vector2( 6785.68, 1347.28 )
-collision_layer = 512
-collision_mask = 512
-point1 = 6390
-point2 = 7045
-
 [node name="Mage" parent="." instance=ExtResource( 39 )]
 position = Vector2( 422.117, 606.682 )
 
@@ -263,6 +256,13 @@ position = Vector2( 422.117, 606.682 )
 position = Vector2( 6004.3, 1342.4 )
 collision_layer = 260
 collision_mask = 260
+
+[node name="UndeadWarrior" parent="." instance=ExtResource( 20 )]
+position = Vector2( 6785.68, 1347.28 )
+collision_layer = 512
+collision_mask = 512
+point1 = 6390
+point2 = 7045
 
 [node name="Jumps" type="Node" parent="."]
 

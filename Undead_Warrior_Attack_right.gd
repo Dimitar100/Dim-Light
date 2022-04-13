@@ -16,7 +16,6 @@ func _ready():
 func _physics_process(_delta):
 	if get_parent().get_node("AnimatedSprite").flip_h:
 		
-		
 		if get_parent().attack && !in_motion && !finished:
 			start_loc = $CollisionShape2D.global_position.x
 			collision_loc_x = start_loc + extend

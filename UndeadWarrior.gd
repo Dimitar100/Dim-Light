@@ -3,6 +3,7 @@ extends KinematicBody2D
 const UP = Vector2(0, -1)
 export var FAST_SPEED = 600
 const GRAVITY = 2000
+const STOP = 0
 
 var motion = Vector2(0, 0)
 var target = null
@@ -33,13 +34,28 @@ func _apply_movement(_delta):
 		
 		if  global_position.x >= point1 && direction == -1 && (!$AnimatedSprite.animation == "AttackV2" || $AnimatedSprite.frame > 5):
 			$AnimatedSprite.flip_h = false
+			attack = false
 		elif global_position.x <= point2 && direction == 1 && (!$AnimatedSprite.animation == "AttackV2" || $AnimatedSprite.frame > 5):
 			$AnimatedSprite.flip_h = true
+			attack = false
 		else:
 			motion.x = 0
 			
-		motion.x = direction * SPEED
+		if target != null:
+			var distance = target.global_position.x - global_position.x
 			
+			if distance < 0:
+				distance *= -1
+			
+			if direction == -1 && distance < 68:
+				motion.x = STOP
+			elif direction == 1 && distance < 110:
+				motion.x = STOP
+			else:
+				motion.x = direction * SPEED
+		else:
+			motion.x = direction * SPEED
+		
 		if global_position.x <= point1  && (!$AnimatedSprite.animation == "AttackV2" || $AnimatedSprite.frame > 5):
 			direction = 1
 		elif global_position.x >= point2  && (!$AnimatedSprite.animation == "AttackV2" || $AnimatedSprite.frame > 5):
@@ -60,16 +76,25 @@ func _apply_movement(_delta):
 		else:
 			if $AnimatedSprite.animation == "AttackV2":
 				if $AnimatedSprite.frame == $AnimatedSprite.frames.get_frame_count("AttackV2")-1:
-					$AnimatedSprite.play("WalkV2")
+					if motion.x > 0:
+						$AnimatedSprite.play("WalkV2")
+					else:
+						$AnimatedSprite.play("Idle")
 					attack = false
 	else:
 		if $AnimatedSprite.animation == "AttackV2":
 			if $AnimatedSprite.frame == $AnimatedSprite.frames.get_frame_count("AttackV2")-1:
-				$AnimatedSprite.play("WalkV2")
+				if motion.x > 0:
+					$AnimatedSprite.play("WalkV2")
+				else:
+					$AnimatedSprite.play("Idle")
 				attack = false
 		else:
-			$AnimatedSprite.play("WalkV2")
-		
+			if motion.x > 0:
+				$AnimatedSprite.play("WalkV2")
+			else:
+				$AnimatedSprite.play("Idle")
+			
 
 	
 func _on_Range_body_entered(body):

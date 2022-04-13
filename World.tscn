@@ -253,12 +253,12 @@ point2 = 3165
 position = Vector2( 422.117, 606.682 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 6004.3, 1342.4 )
+position = Vector2( 7010.76, 1337.06 )
 collision_layer = 260
 collision_mask = 260
 
 [node name="UndeadWarrior" parent="." instance=ExtResource( 20 )]
-position = Vector2( 6785.68, 1347.28 )
+position = Vector2( 6337.17, 1333.94 )
 collision_layer = 512
 collision_mask = 512
 point1 = 6390

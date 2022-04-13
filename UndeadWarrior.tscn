@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Undead_Warrior_Attack_left.gd" type="Script" id=1]
+[ext_resource path="res://Undead_Warrior_Attack_right.gd" type="Script" id=2]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_1.png" type="Texture" id=14]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_6.png" type="Texture" id=15]
 [ext_resource path="res://UndeadWarrior.gd" type="Script" id=16]
@@ -61,7 +62,7 @@ extents = Vector2( 169.618, 144.619 )
 extents = Vector2( 27.9194, 20.6667 )
 
 [node name="UndeadWarrior" type="KinematicBody2D"]
-position = Vector2( 4.75367, -6.6742 )
+position = Vector2( 0, -6.674 )
 script = ExtResource( 16 )
 __meta__ = {
 "_edit_group_": true
@@ -75,7 +76,7 @@ script = ExtResource( 17 )
 material = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "WalkV2"
-frame = 6
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -103,10 +104,10 @@ shape = SubResource( 5 )
 disabled = true
 
 [node name="Attack_right" type="Area2D" parent="."]
-position = Vector2( 120.614, -0.749161 )
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_right"]
-position = Vector2( -69, 11 )
+position = Vector2( 52, 11 )
 shape = SubResource( 5 )
 disabled = true
 
@@ -118,3 +119,4 @@ wait_time = 2.5
 [connection signal="body_entered" from="Attack_left" to="Attack_left" method="_on_Attack_left_body_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_AttackCooldown_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="Attack_left" method="_on_AttackCooldown_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="Attack_right" method="_on_AttackCooldown_timeout"]

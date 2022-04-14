@@ -2,8 +2,9 @@ extends StateMachine
 
 func _ready():
 	add_state("idle")
+	add_state("walk")
 	add_state("attack")
-	add_state("tutorial")
+	add_state("post_attack")
 	call_deferred("set_state", states.idle)
 
 func _state_logic(delta):

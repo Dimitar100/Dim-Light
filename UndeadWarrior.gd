@@ -68,43 +68,17 @@ func _apply_movement(_delta):
 		#$AnimatedSprite.play("Idle")
 	
 	if in_range:
-		if cooldown == false:
-			$AnimatedSprite.play("AttackV2")
-			attack = true
-			$AttackCooldown.start()
-			cooldown = true
-		else:
-			if $AnimatedSprite.animation == "AttackV2":
-				if $AnimatedSprite.frame == $AnimatedSprite.frames.get_frame_count("AttackV2")-1:
-					if motion.x > 0:
-						$AnimatedSprite.play("WalkV2")
-					else:
-						$AnimatedSprite.play("Idle")
-					attack = false
+		pass
 	else:
-		if $AnimatedSprite.animation == "AttackV2":
-			if $AnimatedSprite.frame == $AnimatedSprite.frames.get_frame_count("AttackV2")-1:
-				if motion.x > 0:
-					$AnimatedSprite.play("WalkV2")
-				else:
-					$AnimatedSprite.play("Idle")
-				attack = false
-		else:
-			if motion.x > 0:
-				$AnimatedSprite.play("WalkV2")
-			else:
-				$AnimatedSprite.play("Idle")
-			
+		pass
 
-	
+
 func _on_Range_body_entered(body):
 	in_range = true
 	target = body
 
-
 func _on_Range_body_exited(_body):
 	in_range = false
-
 
 func _on_AttackCooldown_timeout():
 	cooldown = false

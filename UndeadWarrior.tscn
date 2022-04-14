@@ -36,19 +36,24 @@ light_mode = 1
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 56 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 55 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 43 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 48 ) ],
-"loop": true,
-"name": "WalkV2",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": false,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 44 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 15 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 41 ), ExtResource( 42 ) ],
+"frames": [ ExtResource( 56 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 55 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 43 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 48 ) ],
 "loop": true,
-"name": "AttackV2",
+"name": "Walk",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 44 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Attack",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 41 ), ExtResource( 42 ) ],
+"loop": true,
+"name": "PostAttack",
 "speed": 12.0
 } ]
 
@@ -75,8 +80,7 @@ script = ExtResource( 17 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )
 frames = SubResource( 2 )
-animation = "WalkV2"
-frame = 3
+animation = "Idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

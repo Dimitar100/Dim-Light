@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 const UP = Vector2(0, -1)
-export var FAST_SPEED = 600
 const GRAVITY = 2000
 const STOP = 0
 
@@ -11,9 +10,11 @@ var direction = -1 #turn to enum
 var in_range = false
 var attack = false
 var cooldown = false
+var point1 = 4916
+var point2 = 6300
 
-export var point1 = 4916
-export var point2 = 6300
+export var point_left = 0
+export var point_right = 0
 export var tutorial = false
 export var SPEED = 150
 
@@ -27,9 +28,13 @@ func _apply_gravity(delta):
 func _apply_movement(_delta):
 	
 	if !tutorial:
+		
 		if target != null:
 			point1 = target.global_position.x
 			point2 = target.global_position.x
+		else:
+			point1 = point_left
+			point2 = point_right
 		
 		if  global_position.x >= point1 && direction == -1 && !$StateMachine.attack:
 			$AnimatedSprite.flip_h = false
@@ -74,8 +79,10 @@ func _on_Range_body_exited(_body):
 func _play_anim(anim):
 	$AnimatedSprite.play(anim)
 
-func _on_Attack_left_body_entered(body):
-	pass # Replace with function body.
+func _on_Attack_left_body_entered(_body):
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://GameOver.tscn")
 
-func _on_Attack_right_body_entered(body):
-	pass # Replace with function body.
+func _on_Attack_right_body_entered(_body):
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://GameOver.tscn")

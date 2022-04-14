@@ -7,11 +7,10 @@ const STOP = 0
 
 var motion = Vector2(0, 0)
 var target = null
-var direction = -1
+var direction = -1 #turn to enum
 var in_range = false
 var attack = false
 var cooldown = false
-
 
 export var point1 = 4916
 export var point2 = 6300
@@ -32,14 +31,19 @@ func _apply_movement(_delta):
 			point1 = target.global_position.x
 			point2 = target.global_position.x
 		
-		if  global_position.x >= point1 && direction == -1 && (!$AnimatedSprite.animation == "AttackV2" || $AnimatedSprite.frame > 5):
+		if  global_position.x >= point1 && direction == -1 && !$StateMachine.attack:
 			$AnimatedSprite.flip_h = false
 			attack = false
-		elif global_position.x <= point2 && direction == 1 && (!$AnimatedSprite.animation == "AttackV2" || $AnimatedSprite.frame > 5):
+		elif global_position.x <= point2 && direction == 1 && !$StateMachine.attack:
 			$AnimatedSprite.flip_h = true
 			attack = false
 		else:
 			motion.x = 0
+		
+		if global_position.x <= point1 && !$StateMachine.attack:
+			direction = 1
+		elif global_position.x >= point2 && !$StateMachine.attack:
+			direction = -1
 			
 		if target != null:
 			var distance = target.global_position.x - global_position.x
@@ -55,23 +59,10 @@ func _apply_movement(_delta):
 				motion.x = direction * SPEED
 		else:
 			motion.x = direction * SPEED
-		
-		if global_position.x <= point1  && (!$AnimatedSprite.animation == "AttackV2" || $AnimatedSprite.frame > 5):
-			direction = 1
-		elif global_position.x >= point2  && (!$AnimatedSprite.animation == "AttackV2" || $AnimatedSprite.frame > 5):
-			direction = -1
-			
+
 		motion = move_and_slide(motion, UP)
-
 	else:
-		pass
-		#$AnimatedSprite.play("Idle")
-	
-	if in_range:
-		pass
-	else:
-		pass
-
+		$AnimatedSprite.play("Idle")
 
 func _on_Range_body_entered(body):
 	in_range = true
@@ -79,8 +70,12 @@ func _on_Range_body_entered(body):
 
 func _on_Range_body_exited(_body):
 	in_range = false
+	
+func _play_anim(anim):
+	$AnimatedSprite.play(anim)
 
-func _on_AttackCooldown_timeout():
-	cooldown = false
+func _on_Attack_left_body_entered(body):
+	pass # Replace with function body.
 
-
+func _on_Attack_right_body_entered(body):
+	pass # Replace with function body.

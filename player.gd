@@ -16,8 +16,10 @@ func _ready():
 	$Sprite_right.visible = true
 
 func _play_anim(anim):
-	$Sprite_left.play(anim)
-	$Sprite_right.play(anim)
+	if $Sprite_left.visible:
+		$Sprite_left.play(anim)
+	elif $Sprite_right.visible:
+		$Sprite_right.play(anim)
 
 func _apply_gravity(delta):
 	motion.y += GRAVITY*delta

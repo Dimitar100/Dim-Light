@@ -15,6 +15,7 @@ var ready = true
 var direction = -1
 var on = true
 var start = false
+var take_dmg = false
 
 export var point1 = 4916
 export var point2 = 6300

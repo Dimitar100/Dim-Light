@@ -9,6 +9,7 @@ func _ready():
 	add_state("walk")
 	add_state("attack")
 	add_state("post_attack")
+	add_state("take_dmg")
 	call_deferred("set_state", states.idle)
 
 func _atack_done_check():
@@ -49,6 +50,14 @@ func _get_transition(_delta):
 				return states.idle
 			elif parent.in_range && !attackCooldown:
 				return states.attack
+		#states.take_dmg:
+			#if !parent.take_dmg:
+				#if parent.motion.x == 0:
+					#return states.idle
+				#elif parent.motion.x != 0:
+					#return states.walk
+				#elif parent.in_range && !attackCooldown:
+					#return states.attack
 
 	return null
 
@@ -62,6 +71,8 @@ func _enter_state(new_state, _old_state):
 			parent._play_anim("Attack")
 		states.post_attack:
 			parent._play_anim("PostAttack")
+		states.take_dmg:
+			parent._play_anim("TakeDmg")
 	
 func _exit_state(_old_state, _new_state):
 	pass

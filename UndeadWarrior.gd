@@ -10,6 +10,8 @@ var direction = -1 #turn to enum
 var in_range = false
 var attack = false
 var cooldown = false
+var take_dmg = false
+var knockback_loc = 0
 var point1 = 4916
 var point2 = 6300
 
@@ -17,7 +19,7 @@ export var point_left = 0
 export var point_right = 0
 export var tutorial = false
 export var SPEED = 150
-export var health = 1000
+export var health = 10000
 
 func _ready():
 	$AttackCooldown.start()
@@ -42,9 +44,11 @@ func _apply_movement(_delta):
 		
 		if  global_position.x >= point1 && direction == -1 && !$StateMachine.attack:
 			$AnimatedSprite.flip_h = false
+			$CollisionShape2D.global_position.x = global_position.x + 25
 			attack = false
 		elif global_position.x <= point2 && direction == 1 && !$StateMachine.attack:
 			$AnimatedSprite.flip_h = true
+			$CollisionShape2D.global_position.x = global_position.x - 25
 			attack = false
 		else:
 			motion.x = 0
@@ -59,7 +63,7 @@ func _apply_movement(_delta):
 			
 			if distance < 0:
 				distance *= -1
-			
+				
 			if direction == -1 && distance < 68:
 				motion.x = STOP
 			elif direction == 1 && distance < 110:
@@ -84,9 +88,15 @@ func _play_anim(anim):
 	$AnimatedSprite.play(anim)
 
 func _on_Attack_left_body_entered(_body):
+	pass
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://GameOver.tscn")
+	#get_tree().change_scene("res://GameOver.tscn")
 
 func _on_Attack_right_body_entered(_body):
+	pass
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://GameOver.tscn")
+	#get_tree().change_scene("res://GameOver.tscn")
+
+
+func _on_DmgTaken_timeout():
+	take_dmg = false

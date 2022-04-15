@@ -55,13 +55,18 @@ animations = [ {
 "loop": true,
 "name": "PostAttack",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 47 ) ],
+"loop": true,
+"name": "TakeDmg",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 20.8235, 59.6316 )
+extents = Vector2( 25.3813, 59.6316 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 169.618, 144.619 )
+extents = Vector2( 167.653, 61.9986 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 27.9194, 20.6667 )
@@ -84,8 +89,7 @@ animation = "Idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 28.7068, -4.01387 )
+position = Vector2( 25, -4.014 )
 shape = SubResource( 3 )
 
 [node name="Range" type="Area2D" parent="."]
@@ -94,7 +98,6 @@ collision_layer = 256
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
-position = Vector2( 12.3471, -76.3274 )
 shape = SubResource( 4 )
 
 [node name="Attack_left" type="Area2D" parent="."]
@@ -126,7 +129,7 @@ disabled = true
 [node name="AttackCooldown" type="Timer" parent="."]
 wait_time = 2.5
 
-[node name="Node" type="Node" parent="."]
+[node name="DmgTaken" type="Timer" parent="."]
 
 [connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]
@@ -135,3 +138,4 @@ wait_time = 2.5
 [connection signal="timeout" from="AttackCooldown" to="StateMachine" method="_on_AttackCooldown_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="Attack_left" method="_on_AttackCooldown_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="Attack_right" method="_on_AttackCooldown_timeout"]
+[connection signal="timeout" from="DmgTaken" to="." method="_on_DmgTaken_timeout"]

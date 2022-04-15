@@ -17,6 +17,7 @@ export var point_left = 0
 export var point_right = 0
 export var tutorial = false
 export var SPEED = 150
+export var health = 1000
 
 func _ready():
 	$AttackCooldown.start()
@@ -26,6 +27,9 @@ func _apply_gravity(delta):
 		
 
 func _apply_movement(_delta):
+	
+	if health <= 0:
+		queue_free()
 	
 	if !tutorial:
 		

@@ -18,7 +18,7 @@ var start = false
 
 export var point1 = 4916
 export var point2 = 6300
-
+export var health = 250
 export var tutorial = false
 
 func _ready():
@@ -30,6 +30,9 @@ func _apply_gravity(delta):
 		
 
 func _apply_movement(_delta):
+	
+	if health <= 0:
+		queue_free()
 	
 	if ready && !tutorial:
 		

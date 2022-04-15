@@ -161,8 +161,8 @@ scale = Vector2( 1, 0.99 )
 shape = SubResource( 5 )
 
 [node name="Atack_right" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 32
+collision_layer = 544
+collision_mask = 544
 script = ExtResource( 39 )
 __meta__ = {
 "_edit_group_": true
@@ -174,8 +174,8 @@ shape = SubResource( 6 )
 disabled = true
 
 [node name="Atack_left" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 32
+collision_layer = 544
+collision_mask = 544
 script = ExtResource( 37 )
 __meta__ = {
 "_edit_group_": true

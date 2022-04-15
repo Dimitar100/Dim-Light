@@ -16,4 +16,6 @@ func _physics_process(delta):
 			$CollisionShape2D.disabled = true
 
 func _on_Atack_right_body_entered(body):
-	body.queue_free()
+	print("ok")
+	if body.health > 0:
+		body.health = body.health - 250

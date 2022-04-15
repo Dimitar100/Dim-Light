@@ -4,7 +4,7 @@ var started = false
 
 func _ready():
 	pass
-	#$CanvasModulate.visible = true
+	$CanvasModulate.visible = true
 	
 func _process(_delta):
 	

@@ -38,6 +38,8 @@ func _get_transition(_delta):
 			if parent.get_node("AnimatedSprite").frame == parent.get_node("AnimatedSprite").frames.get_frame_count("PostAttack") - 1:
 				if parent.motion.x != 0:
 					return states.walk
+				elif parent.motion.x == 0 && parent.target != null:
+					return states.take_dmg
 				else:
 					return states.idle
 		states.idle:
@@ -46,11 +48,17 @@ func _get_transition(_delta):
 			elif parent.in_range && !attackCooldown:
 				return states.attack
 		states.walk:
-			if parent.motion.x == 0:
+			if parent.motion.x == 0 && parent.target != null:
+				return states.take_dmg
+			elif parent.motion.x == 0:
 				return states.idle
 			elif parent.in_range && !attackCooldown:
 				return states.attack
-		#states.take_dmg:
+		states.take_dmg:
+			if parent.motion.x != 0:
+				return states.walk
+			elif parent.in_range && !attackCooldown:
+				return states.attack
 			#if !parent.take_dmg:
 				#if parent.motion.x == 0:
 					#return states.idle

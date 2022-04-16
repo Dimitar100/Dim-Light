@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Undead_Warrior_Attack_left.gd" type="Script" id=1]
 [ext_resource path="res://Undead_Warrior_Attack_right.gd" type="Script" id=2]
@@ -14,8 +14,6 @@
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_9.png" type="Texture" id=38]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_10.png" type="Texture" id=39]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_11.png" type="Texture" id=40]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_15.png" type="Texture" id=41]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_16.png" type="Texture" id=42]
 [ext_resource path="res://undead_warrior_walk_128v2/undead_warrior_7.png" type="Texture" id=43]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_2.png" type="Texture" id=44]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_12.png" type="Texture" id=45]
@@ -51,7 +49,7 @@ animations = [ {
 "name": "Attack",
 "speed": 9.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 41 ), ExtResource( 42 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ) ],
 "loop": true,
 "name": "PostAttack",
 "speed": 12.0
@@ -127,7 +125,7 @@ shape = SubResource( 5 )
 disabled = true
 
 [node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 2.5
+wait_time = 2.0
 
 [node name="DmgTaken" type="Timer" parent="."]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/eye_2.png-0ff9b6f28780e6a89df01b3115ac2c2f.stex"
+path="res://.import/undead_warrior_1.png-0dcc4c456b9f4d6072a89987ba5b7593.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/sprinting/eye_2.png"
-dest_files=[ "res://.import/eye_2.png-0ff9b6f28780e6a89df01b3115ac2c2f.stex" ]
+source_file="res://undead_warrior_in_combat-128v2/undead_warrior_1.png"
+dest_files=[ "res://.import/undead_warrior_1.png-0dcc4c456b9f4d6072a89987ba5b7593.stex" ]
 
 [params]
 

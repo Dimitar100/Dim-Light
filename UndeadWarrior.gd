@@ -63,7 +63,7 @@ func _apply_movement(_delta):
 			
 			if distance < 0:
 				distance *= -1
-				
+			#stop distance
 			if direction == -1 && distance < 50:
 				motion.x = STOP
 			elif direction == 1 && distance < 90:

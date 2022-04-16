@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Undead_Warrior_Attack_left.gd" type="Script" id=1]
 [ext_resource path="res://Undead_Warrior_Attack_right.gd" type="Script" id=2]
+[ext_resource path="res://undead_warrior_in_combat-128v2/undead_warrior_2.png" type="Texture" id=3]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_1.png" type="Texture" id=14]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_6.png" type="Texture" id=15]
 [ext_resource path="res://UndeadWarrior.gd" type="Script" id=16]
@@ -54,10 +55,10 @@ animations = [ {
 "name": "PostAttack",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 47 ) ],
+"frames": [ ExtResource( 47 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "TakeDmg",
-"speed": 5.0
+"speed": 2.5
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -83,10 +84,11 @@ script = ExtResource( 17 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )
 frames = SubResource( 2 )
-animation = "Idle"
+animation = "TakeDmg"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 25, -4.014 )
 shape = SubResource( 3 )
 

@@ -9,7 +9,7 @@ func _ready():
 
 func _physics_process(delta):
 	if get_parent().start:
-		if Input.is_action_just_pressed("ui_click_left") && child.visible :
+		if Input.is_action_just_pressed("ui_click_left") && child.visible && child.get_animation() != "Atack" :
 			$CollisionShape2D.disabled = false
 			child.play("Atack")
 			yield(get_tree().create_timer(15*delta), "timeout")

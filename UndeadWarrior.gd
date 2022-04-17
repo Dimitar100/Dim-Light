@@ -35,6 +35,8 @@ func _apply_movement(_delta):
 	
 	if !tutorial:
 		
+		flash()
+		
 		if target != null:
 			point1 = target.global_position.x
 			point2 = target.global_position.x
@@ -99,4 +101,26 @@ func _on_Attack_right_body_entered(_body):
 
 
 func _on_DmgTaken_timeout():
-	take_dmg = false
+	if take_dmg:
+		take_dmg = false
+		$DmgTaken.stop()
+	
+func flash():
+	if take_dmg == true && $DmgTaken.get_time_left() == 0 :
+		$AnimatedSprite.material.set_shader_param("flash_modifier", 1)
+		$DmgTaken.start()
+	elif take_dmg == false:
+		$AnimatedSprite.material.set_shader_param("flash_modifier", 0)
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

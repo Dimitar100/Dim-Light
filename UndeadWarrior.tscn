@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Undead_Warrior_Attack_left.gd" type="Script" id=1]
 [ext_resource path="res://Undead_Warrior_Attack_right.gd" type="Script" id=2]
 [ext_resource path="res://undead_warrior_in_combat-128v2/undead_warrior_2.png" type="Texture" id=3]
+[ext_resource path="res://flash_shader.gdshader" type="Shader" id=4]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_1.png" type="Texture" id=14]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_6.png" type="Texture" id=15]
 [ext_resource path="res://UndeadWarrior.gd" type="Script" id=16]
@@ -30,8 +31,10 @@
 [ext_resource path="res://undead_warrior_walk_128v2/undead_warrior_4.png" type="Texture" id=55]
 [ext_resource path="res://undead_warrior_walk_128v2/undead_warrior_1.png" type="Texture" id=56]
 
-[sub_resource type="CanvasItemMaterial" id=1]
-light_mode = 1
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 4 )
+shader_param/flash_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+shader_param/flash_modifier = 0.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -55,7 +58,7 @@ animations = [ {
 "name": "PostAttack",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 47 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 47 ) ],
 "loop": true,
 "name": "TakeDmg",
 "speed": 2.5
@@ -82,7 +85,7 @@ SPEED = 200
 script = ExtResource( 17 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-material = SubResource( 1 )
+material = SubResource( 6 )
 frames = SubResource( 2 )
 animation = "TakeDmg"
 playing = true
@@ -130,12 +133,13 @@ disabled = true
 wait_time = 2.0
 
 [node name="DmgTaken" type="Timer" parent="."]
+wait_time = 0.25
 
 [connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]
 [connection signal="body_entered" from="Attack_left" to="." method="_on_Attack_left_body_entered"]
 [connection signal="body_entered" from="Attack_right" to="." method="_on_Attack_right_body_entered"]
-[connection signal="timeout" from="AttackCooldown" to="StateMachine" method="_on_AttackCooldown_timeout"]
-[connection signal="timeout" from="AttackCooldown" to="Attack_left" method="_on_AttackCooldown_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="Attack_right" method="_on_AttackCooldown_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="Attack_left" method="_on_AttackCooldown_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="StateMachine" method="_on_AttackCooldown_timeout"]
 [connection signal="timeout" from="DmgTaken" to="." method="_on_DmgTaken_timeout"]

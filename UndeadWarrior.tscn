@@ -87,7 +87,7 @@ script = ExtResource( 17 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 6 )
 frames = SubResource( 2 )
-animation = "TakeDmg"
+animation = "Idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -133,7 +133,7 @@ disabled = true
 wait_time = 2.0
 
 [node name="DmgTaken" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.2
 
 [connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]

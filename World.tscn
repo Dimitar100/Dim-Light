@@ -269,7 +269,7 @@ position = Vector2( 5920.51, 1393.35 )
 position = Vector2( 7530.54, 1396.49 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 6258.71, 1310.17 )
+position = Vector2( 571.508, 606.688 )
 collision_layer = 260
 collision_mask = 260
 

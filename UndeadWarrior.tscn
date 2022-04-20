@@ -31,7 +31,7 @@
 [ext_resource path="res://undead_warrior_walk_128v2/undead_warrior_4.png" type="Texture" id=55]
 [ext_resource path="res://undead_warrior_walk_128v2/undead_warrior_1.png" type="Texture" id=56]
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
 shader_param/flash_color = Color( 0.788235, 0.788235, 0.788235, 1 )
 shader_param/flash_modifier = 0.0
@@ -80,13 +80,13 @@ __meta__ = {
 "_edit_group_": true
 }
 SPEED = 200
-health = 2500
+health = 1250
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 17 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-material = SubResource( 6 )
+material = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "Idle"
 playing = true

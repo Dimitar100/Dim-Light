@@ -47,3 +47,17 @@ func _is_falling():
 func _apply_movement(_delta):
 	motion.x = speed * move_direction 
 	motion = move_and_slide(motion, UP)
+	
+func kill():
+	$Sprite_left.visible = false
+	$Sprite_right.visible = false
+	start = false
+	$BeforeDeath.start(1.5)
+
+func call_mage():
+	get_parent().get_node("Mage").dialogue("You have found a gem! Good job!")
+	get_parent().get_node("Mage").get_node("MageDialogue").get_node("Timer").start(3)
+
+func _on_BeforeDeath_timeout():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://GameOver.tscn")

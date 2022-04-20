@@ -82,8 +82,21 @@ func _apply_movement(_delta):
 
 
 func _on_Mage_body_entered(_body):
-	#body.queue_free()
-	queue_free()
+	$AnimatedSprite.visible = false
+	$BeforeDeath.start(1.5)
+
+	
+func dialogue(var text):
+	$MageDialogue.set_text(text)
+	$MageDialogue/Dialogue.visible = true
+	
+func end_dialogue():
+	$MageDialogue/Dialogue.visible = true
+	$MageDialogue.set_text("Well done!!!")
+	$MageDialogue/Timer.start(3)
+	start = true
+
+
+func _on_BeforeDeath_timeout():
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://GameOver.tscn")
-	

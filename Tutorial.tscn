@@ -81,7 +81,7 @@ position = Vector2( 415.561, 649.944 )
 SPEED = 200
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1532.87, 621.399 )
+position = Vector2( 1398.5, 620.532 )
 tutorial = true
 
 [node name="Player" parent="." instance=ExtResource( 1 )]

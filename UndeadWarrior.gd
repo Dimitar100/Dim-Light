@@ -32,6 +32,7 @@ func _apply_movement(_delta):
 	
 	if health <= 0:
 		queue_free()
+		get_parent().get_node("Mage").end_dialogue()
 	
 	if !tutorial:
 		
@@ -89,15 +90,11 @@ func _on_Range_body_exited(_body):
 func _play_anim(anim):
 	$AnimatedSprite.play(anim)
 
-func _on_Attack_left_body_entered(_body):
-	pass
-# warning-ignore:return_value_discarded
-	#get_tree().change_scene("res://GameOver.tscn")
+func _on_Attack_left_body_entered(body):
+	body.kill()
 
-func _on_Attack_right_body_entered(_body):
-	pass
-# warning-ignore:return_value_discarded
-	#get_tree().change_scene("res://GameOver.tscn")
+func _on_Attack_right_body_entered(body):
+	body.kill()
 
 
 func _on_DmgTaken_timeout():

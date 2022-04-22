@@ -1,6 +1,7 @@
 extends Node
 
 var started = false
+#default clear clour #564d4d
 
 func _ready():
 	pass

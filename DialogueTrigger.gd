@@ -1,6 +1,6 @@
 extends Area2D
 
-var text = "Oh no!!! You must kill te Undead warrior before we continue forward...Good luck!"
+var text = "Oh no!!! You must defeat te Undead warrior or else we can't continue forward..."
 
 func _on_DialogueTrigger_body_entered(body):
 	body.start = false

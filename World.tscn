@@ -257,7 +257,7 @@ position = Vector2( 422.117, 606.682 )
 [node name="Node" type="Node" parent="Mage"]
 
 [node name="DialogueTrigger" parent="Mage/Node" instance=ExtResource( 22 )]
-position = Vector2( 6029.29, 1345.41 )
+position = Vector2( 6000, 1345.41 )
 
 [node name="UndeadWarrior" parent="." instance=ExtResource( 20 )]
 position = Vector2( 6701.99, 1335.27 )

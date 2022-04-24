@@ -252,7 +252,7 @@ point1 = 2185
 point2 = 3165
 
 [node name="Mage" parent="." instance=ExtResource( 39 )]
-position = Vector2( 422.117, 606.682 )
+position = Vector2( 419.327, 610.92 )
 
 [node name="Node" type="Node" parent="Mage"]
 
@@ -275,7 +275,7 @@ position = Vector2( 5920.51, 1393.35 )
 position = Vector2( 7530.54, 1396.49 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 571.508, 606.688 )
+position = Vector2( 563.023, 610.931 )
 collision_layer = 260
 collision_mask = 260
 

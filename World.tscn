@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://UndeadWarrior.tscn" type="PackedScene" id=20]
 [ext_resource path="res://UndeadWarriorStop.tscn" type="PackedScene" id=21]
 [ext_resource path="res://DialogueTrigger.tscn" type="PackedScene" id=22]
+[ext_resource path="res://UI/game_over.png" type="Texture" id=23]
 [ext_resource path="res://Mage.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Jump.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Boost.tscn" type="PackedScene" id=48]
@@ -188,6 +189,9 @@ light_mode = 1
 8/shape_one_way_margin = 0.0
 8/shapes = [  ]
 8/z_index = 0
+
+[sub_resource type="CanvasItemMaterial" id=4]
+light_mode = 1
 
 [node name="World" type="Node"]
 script = ExtResource( 50 )
@@ -366,3 +370,9 @@ collision_mask = 5
 
 [node name="UI" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1084.87, 496.834 )
+
+[node name="GameOver" type="Sprite" parent="."]
+visible = false
+material = SubResource( 4 )
+position = Vector2( 519.131, 264.285 )
+texture = ExtResource( 23 )

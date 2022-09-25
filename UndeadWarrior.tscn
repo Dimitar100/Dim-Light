@@ -38,21 +38,6 @@ shader_param/flash_modifier = 0.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
-"loop": false,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 56 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 55 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 43 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 48 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 44 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "Attack",
-"speed": 9.0
-}, {
 "frames": [ ExtResource( 15 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ) ],
 "loop": true,
 "name": "PostAttack",
@@ -62,6 +47,21 @@ animations = [ {
 "loop": true,
 "name": "TakeDmg",
 "speed": 2.5
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 44 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Attack",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 56 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 55 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 43 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 48 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -105,8 +105,8 @@ collision_mask = 256
 shape = SubResource( 4 )
 
 [node name="Attack_left" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 2048
+collision_mask = 2048
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -118,8 +118,8 @@ shape = SubResource( 5 )
 disabled = true
 
 [node name="Attack_right" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 2048
+collision_mask = 2048
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -140,7 +140,7 @@ wait_time = 0.2
 [connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]
 [connection signal="body_entered" from="Attack_left" to="." method="_on_Attack_left_body_entered"]
 [connection signal="body_entered" from="Attack_right" to="." method="_on_Attack_right_body_entered"]
-[connection signal="timeout" from="AttackCooldown" to="Attack_right" method="_on_AttackCooldown_timeout"]
-[connection signal="timeout" from="AttackCooldown" to="Attack_left" method="_on_AttackCooldown_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="StateMachine" method="_on_AttackCooldown_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="Attack_left" method="_on_AttackCooldown_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="Attack_right" method="_on_AttackCooldown_timeout"]
 [connection signal="timeout" from="DmgTaken" to="." method="_on_DmgTaken_timeout"]

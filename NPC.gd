@@ -83,6 +83,7 @@ func _apply_movement(_delta):
 
 func _on_Mage_body_entered(_body):
 	$AnimatedSprite.visible = false
+	$Light2D.visible = false
 	$BeforeDeath.start(1.5)
 
 	

@@ -9,7 +9,7 @@ func _ready():
 	
 func _process(_delta):
 	
-	if $UI/lvl04.started && !started:
+	if $UI/PlayBtn.started && !started:
 		$UICamera.current = false
 		$Player/Camera2D.current = true
 		$Mage.start = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://QiutBtn.tscn" type="PackedScene" id=1]
 [ext_resource path="res://PlayBtn.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://UI/00_hover1.png" type="Texture" id=17]
 [ext_resource path="res://lvl04.gd" type="Script" id=18]
 [ext_resource path="res://UI.gd" type="Script" id=19]
+[ext_resource path="res://UI/game_over.png" type="Texture" id=20]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
@@ -26,8 +27,17 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id=2]
 light_mode = 1
 
+[sub_resource type="CanvasItemMaterial" id=3]
+light_mode = 1
+
 [node name="UI" type="Node2D"]
 script = ExtResource( 19 )
+
+[node name="GameOver" type="Sprite" parent="."]
+visible = false
+material = SubResource( 1 )
+position = Vector2( 519.131, 264.285 )
+texture = ExtResource( 20 )
 
 [node name="QiutBtn" parent="." instance=ExtResource( 1 )]
 margin_left = -126.706
@@ -49,14 +59,14 @@ margin_bottom = 122.0
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.631373, 0.631373, 0.631373, 1 )
-material = SubResource( 1 )
+material = SubResource( 2 )
 position = Vector2( 0, 270 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 4 )
 
 [node name="lvl00" type="TextureButton" parent="."]
 visible = false
-material = SubResource( 2 )
+material = SubResource( 3 )
 margin_left = -167.168
 margin_top = 2.24503
 margin_right = -112.168
@@ -69,7 +79,7 @@ __meta__ = {
 
 [node name="lvl01" type="TextureButton" parent="."]
 visible = false
-material = SubResource( 2 )
+material = SubResource( 3 )
 margin_left = -97.1684
 margin_top = 2.24503
 margin_right = -43.1684
@@ -82,7 +92,7 @@ __meta__ = {
 
 [node name="lvl02" type="TextureButton" parent="."]
 visible = false
-material = SubResource( 2 )
+material = SubResource( 3 )
 margin_left = -27.1684
 margin_top = 2.24503
 margin_right = 26.8316
@@ -95,7 +105,7 @@ __meta__ = {
 
 [node name="lvl03" type="TextureButton" parent="."]
 visible = false
-material = SubResource( 2 )
+material = SubResource( 3 )
 margin_left = 42.8316
 margin_top = 2.47659
 margin_right = 96.8316
@@ -108,7 +118,7 @@ __meta__ = {
 
 [node name="lvl04" type="TextureButton" parent="."]
 visible = false
-material = SubResource( 2 )
+material = SubResource( 3 )
 margin_left = 112.832
 margin_top = 2.24503
 margin_right = 166.832
@@ -122,7 +132,7 @@ __meta__ = {
 
 [node name="Back" type="TextureButton" parent="."]
 visible = false
-material = SubResource( 2 )
+material = SubResource( 3 )
 margin_left = -172.982
 margin_top = 221.227
 margin_right = -79.9819

@@ -19,5 +19,7 @@ func _process(_delta):
 		$UI.visible = false
 		started = true
 		$Player.start = true
+		$MenuMusic.stream_paused = true
+		$CaveMusic.stream_paused = false
 	
 

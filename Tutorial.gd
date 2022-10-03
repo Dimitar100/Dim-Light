@@ -7,6 +7,7 @@ func _ready():
 	$Player.start = true
 	$Enemy.start = true
 	$CanvasModulate.visible = true
+	$CaveMusic.stream_paused = false
 	
 func _process(_delta):
 	

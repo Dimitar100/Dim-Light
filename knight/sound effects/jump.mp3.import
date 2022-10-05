@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jump.mp3-9eb1acfee19db6af15eca58c7b04a6ad.mp3str"
+
+[deps]
+
+source_file="res://knight/sound effects/jump.mp3"
+dest_files=[ "res://.import/jump.mp3-9eb1acfee19db6af15eca58c7b04a6ad.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

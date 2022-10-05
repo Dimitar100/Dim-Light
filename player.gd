@@ -48,7 +48,7 @@ func _apply_movement(_delta):
 	motion.x = speed * move_direction 
 	motion = move_and_slide(motion, UP)
 	
-func kill():
+func kill():#is not used
 	$Sprite_left.visible = false
 	$Sprite_right.visible = false
 	start = false
@@ -64,6 +64,7 @@ func _on_BeforeDeath_timeout():
 
 
 func _on_Area2D_area_shape_entered(_area_rid, _area, _area_shape_index, _local_shape_index):
+	$Grunting.play()
 	$Sprite_left.visible = false
 	$Sprite_right.visible = false
 	start = false

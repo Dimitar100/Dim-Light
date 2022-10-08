@@ -15,6 +15,7 @@ func _process(_delta):
 		$Mage.start = true
 		$Enemies/Enemy.start = true
 		$Enemies/Enemy2.start = true
+		$Enemies/Enemy3.start = true
 		
 		$UI.visible = false
 		started = true

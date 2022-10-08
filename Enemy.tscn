@@ -26,11 +26,6 @@ animations = [ {
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
 "loop": false,
 "name": "Jump",
@@ -40,11 +35,16 @@ animations = [ {
 "loop": true,
 "name": "Sprint",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 90.0544
-height = 79.7915
+radius = 80.7247
+height = 87.7814
 
 [node name="Enemy" type="KinematicBody2D"]
 material = SubResource( 1 )
@@ -53,9 +53,6 @@ scale = Vector2( 0.65, 0.65 )
 collision_layer = 34
 collision_mask = 34
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 7 )
@@ -68,6 +65,6 @@ animation = "Idle"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 37.4244 )
+position = Vector2( -0.376953, 47.3801 )
 rotation = 1.5708
 shape = SubResource( 4 )

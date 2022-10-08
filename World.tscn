@@ -253,6 +253,12 @@ FAST_SPEED = 250
 point1 = 2185
 point2 = 3165
 
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 5421, 1197 )
+FAST_SPEED = 250
+point1 = 4548
+point2 = 5476
+
 [node name="Mage" parent="." instance=ExtResource( 39 )]
 position = Vector2( 419.327, 610.92 )
 

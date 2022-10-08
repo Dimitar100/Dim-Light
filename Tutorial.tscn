@@ -79,7 +79,6 @@ tutorial = true
 
 [node name="Mage" parent="." instance=ExtResource( 6 )]
 position = Vector2( 415.561, 649.944 )
-SPEED = 200
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1689.8, 619.369 )

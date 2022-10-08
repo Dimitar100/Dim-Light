@@ -309,7 +309,7 @@ position = Vector2( 5055.93, 1273.39 )
 direction = -1
 
 [node name="Jump6" parent="Jumps" instance=ExtResource( 42 )]
-position = Vector2( 3573.12, 679.223 )
+position = Vector2( 3564, 679 )
 direction = -1
 
 [node name="Jump7" parent="Jumps" instance=ExtResource( 42 )]

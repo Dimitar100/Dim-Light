@@ -29,6 +29,7 @@ func _handle_move_input():
 			if move_direction == 0:
 				speed = 0
 		else:
+			$Sword.play()
 			speed = 0
 
 		if move_direction > 0:

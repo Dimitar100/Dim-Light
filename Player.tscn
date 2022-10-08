@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://knight/knight_walking_left/output-onlinepngtools(1).png" type="Texture" id=1]
 [ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(3).png" type="Texture" id=2]
@@ -44,6 +44,7 @@
 [ext_resource path="res://knight/sound effects/jump.mp3" type="AudioStream" id=42]
 [ext_resource path="res://knight/sound effects/fall.mp3" type="AudioStream" id=43]
 [ext_resource path="res://knight/sound effects/grunting-from-being-hit.mp3" type="AudioStream" id=44]
+[ext_resource path="res://knight/sound effects/sword-sounds.mp3" type="AudioStream" id=45]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
@@ -220,6 +221,10 @@ stream = ExtResource( 42 )
 
 [node name="Grunting" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 44 )
+
+[node name="Sword" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 45 )
+volume_db = -6.0
 
 [node name="Fall" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 43 )

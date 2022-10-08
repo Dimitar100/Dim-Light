@@ -7,9 +7,9 @@
 [node name="Jump" type="Area2D"]
 position = Vector2( 1021.52, 686.878 )
 scale = Vector2( 0.5, 0.5 )
-input_pickable = false
 collision_layer = 3
 collision_mask = 3
+input_pickable = false
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true

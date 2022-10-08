@@ -1,6 +1,8 @@
 extends CanvasLayer
 
-
+func _process(delta):
+	if Input.is_action_just_pressed("ui_select"):
+		$Dialogue.visible = false
 
 func _on_LinkButton_pressed():
 	$Dialogue.visible = false

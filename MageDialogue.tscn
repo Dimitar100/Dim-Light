@@ -36,22 +36,19 @@ margin_left = 113.0
 margin_top = 28.4703
 margin_right = 326.0
 margin_bottom = 96.4703
-custom_fonts/mono_font = SubResource( 1 )
 custom_colors/default_color = Color( 0.929412, 0.929412, 0.929412, 1 )
-text = "Oh no!!! You must kill te Undead warrior before we continue forward...Good luck!"
+custom_fonts/mono_font = SubResource( 1 )
+text = "Oh no!!! You must defeat the Undead warrior before we continue forward..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LinkButton" type="LinkButton" parent="Dialogue"]
-margin_left = 302.059
-margin_top = 90.9743
-margin_right = 342.059
-margin_bottom = 104.974
-text = "Ok!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_left = 247.0
+margin_top = 101.0
+margin_right = 323.0
+margin_bottom = 115.0
+text = "Press space"
 
 [node name="Timer" type="Timer" parent="."]
 

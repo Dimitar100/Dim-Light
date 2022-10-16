@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://enemy/sprinting/sprinting_3.png" type="Texture" id=1]
 [ext_resource path="res://enemy/walking/walking_1.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://enemy/sprinting/sprinting_1.png" type="Texture" id=6]
 [ext_resource path="res://StateMachineEnemy.gd" type="Script" id=7]
 [ext_resource path="res://Enemy.gd" type="Script" id=8]
+[ext_resource path="res://JumpIndicator.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -21,16 +22,6 @@ animations = [ {
 "name": "Walki",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Sprint",
@@ -39,6 +30,16 @@ animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Fall",
 "speed": 5.0
 } ]
 
@@ -53,9 +54,6 @@ scale = Vector2( 0.65, 0.65 )
 collision_layer = 34
 collision_mask = 34
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 7 )
@@ -66,9 +64,17 @@ material = SubResource( 2 )
 frames = SubResource( 3 )
 animation = "Idle"
 flip_h = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="JumpIndicator" parent="." instance=ExtResource( 9 )]
+position = Vector2( -70, 110 )
+
+[node name="JumpIndicator2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 70, 110 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -0.376953, 47.3801 )
 rotation = 1.5708
 shape = SubResource( 4 )

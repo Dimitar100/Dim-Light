@@ -21,6 +21,8 @@ var start = false
 var child_two
 var stop = false
 
+var is_idle = true
+
 func _ready():
 	var root_node = get_parent()
 	child_two = root_node.get_node("Player")

@@ -39,8 +39,11 @@ func _apply_movement(_delta):
 		
 		if  global_position.x >= point1 && direction == -1:
 			$AnimatedSprite.flip_h = true
+			#$JumpIndicator.position.x = -70
 		elif global_position.x <= point2 && direction == 1:
 			$AnimatedSprite.flip_h = false
+			#$JumpIndicator.position.x = 70
+			
 		else:
 			motion.x = 0
 			

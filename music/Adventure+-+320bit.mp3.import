@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Adventure+-+320bit.mp3-e5ff0430f3383081fd1b0368cc5a823e.mp3str"
+
+[deps]
+
+source_file="res://music/Adventure+-+320bit.mp3"
+dest_files=[ "res://.import/Adventure+-+320bit.mp3-e5ff0430f3383081fd1b0368cc5a823e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

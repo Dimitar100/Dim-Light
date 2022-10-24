@@ -1,9 +1,11 @@
 extends Node
 
 var started = false
+#default clear clour #564d4d
 
 func _ready():
 	pass
+	$CanvasModulate.visible = true
 	
 func _process(_delta):
 	
@@ -14,10 +16,11 @@ func _process(_delta):
 		$Enemies/Enemy.start = true
 		$Enemies/Enemy2.start = true
 		$Enemies/Enemy3.start = true
-		$Enemies/Enemy4.start = true
 		
 		$UI.visible = false
 		started = true
 		$Player.start = true
+		$MenuMusic.stream_paused = true
+		$CaveMusic.stream_paused = false
 	
 

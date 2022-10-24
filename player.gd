@@ -16,8 +16,8 @@ func _ready():
 	$Sprite_right.visible = true
 
 func _play_anim(anim):
-	$Sprite_left.play(anim)
 	$Sprite_right.play(anim)
+	$Sprite_left.play(anim)
 
 func _apply_gravity(delta):
 	motion.y += GRAVITY*delta
@@ -29,6 +29,7 @@ func _handle_move_input():
 			if move_direction == 0:
 				speed = 0
 		else:
+			$Sword.play()
 			speed = 0
 
 		if move_direction > 0:
@@ -47,3 +48,25 @@ func _is_falling():
 func _apply_movement(_delta):
 	motion.x = speed * move_direction 
 	motion = move_and_slide(motion, UP)
+	
+func kill():#is not used
+	$Sprite_left.visible = false
+	$Sprite_right.visible = false
+	start = false
+	$BeforeDeath.start(1.5)
+
+func call_mage():
+	get_parent().get_node("Mage").dialogue("You have found a gem! Good job!")
+	get_parent().get_node("Mage").get_node("MageDialogue").get_node("Timer").start(3)
+
+func _on_BeforeDeath_timeout():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://GameOver.tscn")
+
+
+func _on_Area2D_area_shape_entered(_area_rid, _area, _area_shape_index, _local_shape_index):
+	$Grunting.play()
+	$Sprite_left.visible = false
+	$Sprite_right.visible = false
+	start = false
+	$BeforeDeath.start(1.5)

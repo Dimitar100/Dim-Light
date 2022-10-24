@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sword-sounds.mp3-4a7b19e7711937e160741432273dc1ec.mp3str"
+
+[deps]
+
+source_file="res://knight/sound effects/sword-sounds.mp3"
+dest_files=[ "res://.import/sword-sounds.mp3-4a7b19e7711937e160741432273dc1ec.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

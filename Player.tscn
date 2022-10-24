@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://knight/knight_walking_left/output-onlinepngtools(1).png" type="Texture" id=1]
 [ext_resource path="res://knight/knight_atack_left/output-onlinepngtools(3).png" type="Texture" id=2]
@@ -40,13 +40,21 @@
 [ext_resource path="res://player.gd" type="Script" id=38]
 [ext_resource path="res://Atack_right.gd" type="Script" id=39]
 [ext_resource path="res://light/pictureLightMask_thumb.png" type="Texture" id=40]
+[ext_resource path="res://knight/sound effects/footsteps-on-stone_LtqURBVJ.mp3" type="AudioStream" id=41]
+[ext_resource path="res://knight/sound effects/jump.mp3" type="AudioStream" id=42]
+[ext_resource path="res://knight/sound effects/fall.mp3" type="AudioStream" id=43]
+[ext_resource path="res://knight/sound effects/grunting-from-being-hit.mp3" type="AudioStream" id=44]
+[ext_resource path="res://knight/sound effects/sword-sounds.mp3" type="AudioStream" id=45]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 1
 
 [sub_resource type="SpriteFrames" id=2]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 24 ), ExtResource( 15 ) ],
@@ -54,32 +62,35 @@ animations = [ {
 "name": "Jump",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 23 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 28 ), ExtResource( 16 ), ExtResource( 32 ), ExtResource( 29 ) ],
-"loop": false,
-"name": "Atack",
-"speed": 14.0
-}, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "Fall",
-"speed": 5.0
+"name": "Idle",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": false,
+"name": "Step",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 33 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 23 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 28 ), ExtResource( 16 ), ExtResource( 32 ), ExtResource( 29 ) ],
 "loop": false,
-"name": "Step",
-"speed": 10.0
+"name": "Atack",
+"speed": 14.0
 } ]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="CanvasItemMaterial" id=3]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 35 ), ExtResource( 14 ) ],
@@ -87,32 +98,35 @@ animations = [ {
 "name": "Jump",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 27 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 31 ) ],
-"loop": false,
-"name": "Atack",
-"speed": 14.0
-}, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "Fall",
-"speed": 5.0
+"name": "Idle",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 31 ), ExtResource( 4 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 27 ) ],
+"loop": false,
+"name": "DoubleAtack",
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 20 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 34 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 27 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 31 ), ExtResource( 4 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 31 ) ],
 "loop": false,
-"name": "DoubleAtack",
-"speed": 12.0
+"name": "Atack",
+"speed": 14.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 32.0431, 90.1898 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 30.2984, 54.5701 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 31.5384, 63.2693 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( -236.361, 417.017 )
@@ -120,9 +134,6 @@ scale = Vector2( 0.65, 0.65 )
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 38 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -20 )
@@ -132,29 +143,31 @@ script = ExtResource( 36 )
 
 [node name="Sprite_right" type="AnimatedSprite" parent="."]
 light_mask = 5
+material = SubResource( 1 )
 position = Vector2( 0, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 2 )
-animation = "Fall"
+animation = "Idle"
 playing = true
 
 [node name="Sprite_left" type="AnimatedSprite" parent="."]
 visible = false
 light_mask = 5
+material = SubResource( 3 )
 position = Vector2( -65, 1 )
 scale = Vector2( 0.75, 0.75 )
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 animation = "Fall"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -32.218, -4.6 )
+position = Vector2( -32.218, -4.60004 )
 scale = Vector2( 1, 0.99 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Atack_right" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 32
+collision_layer = 544
+collision_mask = 544
 script = ExtResource( 39 )
 __meta__ = {
 "_edit_group_": true
@@ -162,12 +175,12 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Atack_right"]
 position = Vector2( 50.7127, -17.1327 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 disabled = true
 
 [node name="Atack_left" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 32
+collision_layer = 544
+collision_mask = 544
 script = ExtResource( 37 )
 __meta__ = {
 "_edit_group_": true
@@ -175,17 +188,49 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Atack_left"]
 position = Vector2( -114.446, -19.1885 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 disabled = true
 
 [node name="EntityLight" type="Light2D" parent="."]
-position = Vector2( -28.7829, -8.22369 )
-scale = Vector2( 1.50256, 1.33123 )
+position = Vector2( -35.1864, -21.9453 )
+scale = Vector2( 1.29674, 1.21688 )
 texture = ExtResource( 40 )
 energy = 0.7
 range_item_cull_mask = 4
 
 [node name="Node2D" type="Node2D" parent="."]
 
+[node name="BeforeDeath" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -31.7523, -24.0648 )
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="HitBox" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -6.9231 )
+shape = SubResource( 7 )
+
+[node name="FootSteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 41 )
+autoplay = true
+stream_paused = true
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 42 )
+
+[node name="Grunting" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 44 )
+
+[node name="Sword" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 45 )
+volume_db = -6.0
+
+[node name="Fall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 43 )
+volume_db = -6.0
+
 [connection signal="body_entered" from="Atack_right" to="Atack_right" method="_on_Atack_right_body_entered"]
 [connection signal="body_entered" from="Atack_left" to="Atack_left" method="_on_Atack_left_body_entered"]
+[connection signal="timeout" from="BeforeDeath" to="." method="_on_BeforeDeath_timeout"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]

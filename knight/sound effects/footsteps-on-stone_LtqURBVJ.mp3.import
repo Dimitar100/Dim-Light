@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/footsteps-on-stone_LtqURBVJ.mp3-599608cea187b404c51fd7d2a5437efb.mp3str"
+
+[deps]
+
+source_file="res://knight/sound effects/footsteps-on-stone_LtqURBVJ.mp3"
+dest_files=[ "res://.import/footsteps-on-stone_LtqURBVJ.mp3-599608cea187b404c51fd7d2a5437efb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -60,6 +60,9 @@ func _get_transition(_delta):
 				elif parent.get_node("Sprite_left").get_animation() == "Atack" && parent.get_node("Sprite_left").frame == parent.get_node("Sprite_left").frames.get_frame_count("Atack") - 1:
 					atack = false
 					return states.idle
+				elif !parent.is_on_floor():
+					atack = false
+					return states.fall
 				elif direction == 0 && parent.move_direction != 0:
 					atack = false
 					return states.idle
@@ -89,14 +92,19 @@ func _get_transition(_delta):
 		states.walk:
 			parent.speed = parent.SPEED
 			direction = parent.move_direction
+			#parent.get_node("FootSteps").stream_paused = false
 			if !parent.is_on_floor():
 				if parent.motion.y < 0:
+					#parent.get_node("FootSteps").stream_paused = true
 					return states.jump
 				if parent.motion.y >= 0:
+					#parent.get_node("FootSteps").stream_paused = true
 					return states.fall
 			elif parent.motion.x == 0:
+				#parent.get_node("FootSteps").stream_paused = true
 				return states.idle
 			elif atack:
+				#parent.get_node("FootSteps").stream_paused = true
 				return states.atack
 		states.jump:
 			parent.speed = parent.JUMP_SPEED
@@ -115,18 +123,32 @@ func _get_transition(_delta):
 		
 	return null
 				
-func _enter_state(new_state, _old_state):
+func _enter_state(new_state, old_state):
 	match new_state:
 		states.idle:
 			parent._play_anim("Idle")
 		states.walk:
 			parent._play_anim("Walk")
+			parent.get_node("FootSteps").stream_paused = false
 		states.jump:
 			parent._play_anim("Jump")
-		#states.fall:
-			#parent._play_anim("Fall")
+			parent.get_node("Jump").play()
+		states.fall:
+			pass
 		#states.atack:
 			#parent.anim_player.play("Atack")
+			
+	match old_state:
+		states.idle:
+			pass
+		states.walk:
+			parent.get_node("FootSteps").stream_paused = true
+		states.jump:
+			pass
+		states.fall:
+			if parent.start == true:
+				parent.get_node("Fall").play()
+		
 
 func _exit_state(_old_state, _new_state):
 	pass

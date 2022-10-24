@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://mage/walking.png" type="Texture" id=1]
 [ext_resource path="res://mage/falling.png" type="Texture" id=2]
@@ -7,31 +7,33 @@
 [ext_resource path="res://StateMachineMage.gd" type="Script" id=5]
 [ext_resource path="res://light/pictureLightMask_thumb.png" type="Texture" id=6]
 [ext_resource path="res://light/light4.png" type="Texture" id=7]
+[ext_resource path="res://MageDialogue.tscn" type="PackedScene" id=8]
+[ext_resource path="res://JumpIndicator.tscn" type="PackedScene" id=9]
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=1]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Falling",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Walking",
 "speed": 2.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Falling",
-"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 31.7861, 106.354 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 30.1101, 64.3196 )
 
 [node name="Mage" type="KinematicBody2D"]
@@ -48,22 +50,22 @@ script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 light_mask = 9
-material = SubResource( 4 )
+material = SubResource( 1 )
 scale = Vector2( 0.75, 0.75 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "Falling"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -1.1 )
 scale = Vector2( 1, 0.8 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Mage" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mage"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 43.0927, -69.0089 )
@@ -77,4 +79,14 @@ texture = ExtResource( 6 )
 energy = 0.7
 range_item_cull_mask = 8
 
+[node name="MageDialogue" parent="." instance=ExtResource( 8 )]
+offset = Vector2( 15, 15 )
+transform = Transform2D( 1, 0, 0, 1, 15, 15 )
+
+[node name="BeforeDeath" type="Timer" parent="."]
+
+[node name="JumpIndicator" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4.61539, 75.3846 )
+
 [connection signal="body_entered" from="Mage" to="." method="_on_Mage_body_entered"]
+[connection signal="timeout" from="BeforeDeath" to="." method="_on_BeforeDeath_timeout"]

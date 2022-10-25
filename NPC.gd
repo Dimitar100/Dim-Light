@@ -4,10 +4,12 @@ const UP = Vector2(0, -1)
 export var SPEED = 350
 const FAST_SPEED = 600
 const GRAVITY = 2000
-const JUMP = -850
+const JUMP = -800
 const WIND_TIMER = 3
 const STOP = 0
 const LIGHT_FLIP = 55
+const FALLING_MOTION = 280
+var falling_motion = 280
 
 var light_tracker = 55
 var light_step = 11
@@ -37,48 +39,40 @@ func _apply_gravity(delta):
 	motion.y += GRAVITY*delta
 
 func _apply_movement(_delta):
+	var distance = child_two.global_position.x - global_position.x
 	
 	if Input.is_action_just_pressed("ui_space"):
 		stop = !stop
 	
 	if !end && start && !stop:
-		if  global_position.x >  child_two.global_position.x:
-			if fast > 0:
-				motion.x = -FAST_SPEED
-			else:	
-				motion.x = -SPEED
-		elif global_position.x < child_two.global_position.x:
-			if fast > 0:
-				motion.x = FAST_SPEED
-			else:	
-				motion.x = SPEED
+		if is_on_floor():
+			falling_motion = FALLING_MOTION
+			if direction == -1 && distance > -68:
+				motion.x = STOP
+			elif direction == 1 && distance < 110:
+				motion.x = STOP
+			else:
+				motion.x = SPEED * direction
+		else:
+			motion.x = falling_motion * direction
+			falling_motion -= 1
 	else:
 		motion.x = 0
 		
-	if global_position.x > child_two.global_position.x && direction != -1:
-		$AnimatedSprite.flip_h = true
-		direction = -1
-		light_tracker = 0
-		#$Light2D.global_position.x = $Light2D.global_position.x - 55
-	elif global_position.x < child_two.global_position.x && direction != 1:
-		$AnimatedSprite.flip_h = false
-		direction = 1
-		light_tracker = 0
-		#$Light2D.global_position.x = $Light2D.global_position.x + 55
-		
+	if global_position.x > child_two.global_position.x && direction != -1 && is_on_floor():
+		if child_two.move_direction < 0:
+			$AnimatedSprite.flip_h = true
+			direction = -1
+			light_tracker = 0
+	elif global_position.x < child_two.global_position.x && direction != 1 && is_on_floor():
+		if child_two.move_direction > 0:
+			$AnimatedSprite.flip_h = false
+			direction = 1
+			light_tracker = 0
+
 	if light_tracker < LIGHT_FLIP:
 			$Light2D.global_position.x = $Light2D.global_position.x + direction * light_step
 			light_tracker += light_step
-			
-	var distance = child_two.global_position.x - global_position.x
-		
-	if distance < 0:
-		distance *= -1
-		
-	if direction == -1 && distance < 68:
-		motion.x = STOP
-	elif direction == 1 && distance < 110:
-		motion.x = STOP
 
 	motion = move_and_slide(motion, UP)
 

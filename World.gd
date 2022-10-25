@@ -10,6 +10,11 @@ func _ready():
 func _process(_delta):
 	
 	if $UI/PlayBtn.started && !started:
+		$Player.position.x = -1706
+		$Player.position.y = 450
+		$Mage.position.x = -1850
+		$Mage.position.y = 450
+		
 		$UICamera.current = false
 		$Player/Camera2D.current = true
 		$Mage.start = true

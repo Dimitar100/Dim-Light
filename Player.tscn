@@ -57,9 +57,9 @@ animations = [ {
 "name": "Idle",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": false,
-"name": "Jump",
+"name": "Step",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -67,9 +67,9 @@ animations = [ {
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 24 ), ExtResource( 15 ) ],
 "loop": false,
-"name": "Step",
+"name": "Jump",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 33 ), ExtResource( 6 ) ],
@@ -93,15 +93,20 @@ animations = [ {
 "name": "Idle",
 "speed": 1.0
 }, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 35 ), ExtResource( 14 ) ],
 "loop": false,
 "name": "Jump",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
+"frames": [ ExtResource( 27 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 31 ), ExtResource( 4 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 27 ) ],
+"loop": false,
+"name": "DoubleAtack",
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 20 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 34 ), ExtResource( 5 ) ],
 "loop": true,
@@ -112,15 +117,10 @@ animations = [ {
 "loop": false,
 "name": "Atack",
 "speed": 14.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 17 ), ExtResource( 2 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 31 ), ExtResource( 4 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 21 ), ExtResource( 27 ) ],
-"loop": false,
-"name": "DoubleAtack",
-"speed": 12.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 32.0431, 90.1898 )
+extents = Vector2( 32.0431, 91.694 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 30.2984, 54.5701 )
@@ -145,7 +145,7 @@ script = ExtResource( 36 )
 light_mask = 5
 material = SubResource( 1 )
 position = Vector2( 0, 1 )
-scale = Vector2( 0.75, 0.75 )
+scale = Vector2( 0.77, 0.77 )
 frames = SubResource( 2 )
 animation = "Idle"
 playing = true
@@ -155,13 +155,13 @@ visible = false
 light_mask = 5
 material = SubResource( 3 )
 position = Vector2( -65, 1 )
-scale = Vector2( 0.75, 0.75 )
+scale = Vector2( 0.77, 0.77 )
 frames = SubResource( 4 )
 animation = "Fall"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -32.218, -4.60004 )
+position = Vector2( -32.218, -3.7 )
 scale = Vector2( 1, 0.99 )
 shape = SubResource( 5 )
 

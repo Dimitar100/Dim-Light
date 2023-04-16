@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/output-onlinepngtools(2).png-ec8e95a94580562f7985bbe14b6d46ba.stex"
+path="res://.import/glow_vine_purpule.png-80141940e865f66868b94883cc7bec96.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://knight/knight_jump_right/output-onlinepngtools(2).png"
-dest_files=[ "res://.import/output-onlinepngtools(2).png-ec8e95a94580562f7985bbe14b6d46ba.stex" ]
+source_file="res://tiles/glowing_decorations_low/glow_vine_purpule.png"
+dest_files=[ "res://.import/glow_vine_purpule.png-80141940e865f66868b94883cc7bec96.stex" ]
 
 [params]
 

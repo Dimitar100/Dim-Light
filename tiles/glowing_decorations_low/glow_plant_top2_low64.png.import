@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/output-onlinepngtools(2).png-ec8e95a94580562f7985bbe14b6d46ba.stex"
+path="res://.import/glow_plant_top2_low64.png-07d36a4879070104a59ab666bcd1a84c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://knight/knight_jump_right/output-onlinepngtools(2).png"
-dest_files=[ "res://.import/output-onlinepngtools(2).png-ec8e95a94580562f7985bbe14b6d46ba.stex" ]
+source_file="res://tiles/glowing_decorations_low/glow_plant_top2_low64.png"
+dest_files=[ "res://.import/glow_plant_top2_low64.png-07d36a4879070104a59ab666bcd1a84c.stex" ]
 
 [params]
 

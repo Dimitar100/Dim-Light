@@ -24,6 +24,7 @@ var child_two
 var stop = false
 
 var is_idle = true
+var is_mage = true
 
 func _ready():
 	var root_node = get_parent()

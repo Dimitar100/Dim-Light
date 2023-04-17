@@ -22,6 +22,8 @@ export var point2 = 6300
 export var health = 250
 export var tutorial = false
 
+var is_mage = false
+
 func _ready():
 	pass
 

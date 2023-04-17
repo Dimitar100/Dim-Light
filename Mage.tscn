@@ -51,13 +51,13 @@ script = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 light_mask = 9
 material = SubResource( 1 )
-scale = Vector2( 0.75, 0.75 )
+scale = Vector2( 0.77, 0.77 )
 frames = SubResource( 2 )
 animation = "Falling"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -1.1 )
-scale = Vector2( 1, 0.8 )
+scale = Vector2( 1, 0.82 )
 shape = SubResource( 3 )
 
 [node name="Mage" type="Area2D" parent="."]

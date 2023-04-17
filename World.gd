@@ -6,6 +6,7 @@ var started = false
 func _ready():
 	pass
 	$CanvasModulate.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 func _process(_delta):
 	
@@ -27,5 +28,6 @@ func _process(_delta):
 		$Player.start = true
 		$MenuMusic.stream_paused = true
 		$CaveMusic.stream_paused = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 

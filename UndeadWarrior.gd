@@ -22,7 +22,17 @@ export var SPEED = 150
 export var health = 1000
 
 func _ready():
-	$AttackCooldown.start()
+	#$AttackCooldown.start()
+	pass
+
+func _attack_indicator():
+	if $AnimatedSprite.flip_h:
+		$AttackIndicator.global_position.x = global_position.x - 32
+	else:
+		$AttackIndicator.global_position.x = global_position.x + 32
+		
+	if $AttackCooldown.time_left <= 0.35 && !$AttackCooldown.is_stopped():
+		$AttackIndicator.visible = true
 
 func _apply_gravity(delta):
 	motion.y += GRAVITY*delta

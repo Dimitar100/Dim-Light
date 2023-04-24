@@ -56,11 +56,13 @@ frames = SubResource( 2 )
 animation = "Falling"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -1.1 )
 scale = Vector2( 1, 0.82 )
 shape = SubResource( 3 )
 
 [node name="Mage" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 

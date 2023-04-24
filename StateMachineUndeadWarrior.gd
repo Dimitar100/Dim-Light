@@ -24,6 +24,7 @@ func _atack_done_check():
 func _state_logic(delta):
 	parent._apply_gravity(delta)
 	parent._apply_movement(delta)
+	parent._attack_indicator()
 
 func _get_transition(_delta):
 	match state:
@@ -35,6 +36,7 @@ func _get_transition(_delta):
 				attack = false
 				return states.post_attack
 		states.post_attack:
+			parent.get_node("AttackIndicator").visible = false
 			if parent.get_node("AnimatedSprite").frame == parent.get_node("AnimatedSprite").frames.get_frame_count("PostAttack") - 1:
 				if parent.motion.x != 0:
 					return states.walk
@@ -45,15 +47,18 @@ func _get_transition(_delta):
 		states.idle:
 			if parent.motion.x != 0:
 				return states.walk
-			elif parent.in_range && !attackCooldown:
+			elif !attackCooldown:
 				return states.attack
 		states.walk:
+			parent.get_node("AttackIndicator").visible = false
 			if parent.motion.x == 0 && parent.target != null:
 				return states.take_dmg
 			elif parent.motion.x == 0:
 				return states.idle
 			elif parent.in_range && !attackCooldown:
-				return states.attack
+				parent.get_node("AttackCooldown").start()
+				attackCooldown = true
+				return states.idle
 		states.take_dmg:
 			if parent.motion.x != 0:
 				return states.walk
@@ -72,7 +77,7 @@ func _get_transition(_delta):
 func _enter_state(new_state, _old_state):
 	match new_state:
 		states.idle:
-			parent._play_anim("Idle")
+			parent._play_anim("TakeDmg")
 		states.walk:
 			parent._play_anim("Walk")
 		states.attack:

@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
 const UP = Vector2(0, -1)
-export var SPEED = 350
+export var SPEED = 600
 const FAST_SPEED = 600
 const GRAVITY = 2000
-export var JUMP = -800
+export var JUMP = -900
 const WIND_TIMER = 3
 const STOP = 0
 const LIGHT_FLIP = 55
@@ -40,6 +40,7 @@ func _apply_gravity(delta):
 	motion.y += GRAVITY*delta
 
 func _apply_movement(_delta):
+	
 	var distance = child_two.global_position.x - global_position.x
 	
 	if Input.is_action_just_pressed("ui_space"):
@@ -48,13 +49,16 @@ func _apply_movement(_delta):
 	if !end && start && !stop:
 		if is_on_floor():
 			falling_motion = FALLING_MOTION
-			if direction == -1 && distance > -68:
+			if direction == -1 && distance > -68 && child_two.is_on_floor():
 				motion.x = STOP
-			elif direction == 1 && distance < 110:
+			elif direction == 1 && distance < 110 && child_two.is_on_floor():
 				motion.x = STOP
 			else:
-				motion.x = SPEED * direction
-		else:
+				if direction == -1 && distance < -68:
+					motion.x = SPEED * direction
+				elif direction == 1 && distance > 110:
+					motion.x = SPEED * direction
+		elif !is_on_floor():
 			motion.x = falling_motion * direction
 			falling_motion -= 1
 	else:

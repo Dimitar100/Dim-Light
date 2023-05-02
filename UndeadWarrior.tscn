@@ -1,27 +1,33 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Undead_Warrior_Attack_left.gd" type="Script" id=1]
 [ext_resource path="res://Undead_Warrior_Attack_right.gd" type="Script" id=2]
 [ext_resource path="res://undead_warrior_in_combat-128v2/undead_warrior_2.png" type="Texture" id=3]
 [ext_resource path="res://flash_shader.gdshader" type="Shader" id=4]
-[ext_resource path="res://AttackIndicator.tscn" type="PackedScene" id=5]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_16.png" type="Texture" id=5]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_5.png" type="Texture" id=6]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_11.png" type="Texture" id=7]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_1.png" type="Texture" id=8]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_12.png" type="Texture" id=9]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_9.png" type="Texture" id=10]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_3.png" type="Texture" id=11]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_4.png" type="Texture" id=12]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_10.png" type="Texture" id=13]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_1.png" type="Texture" id=14]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_6.png" type="Texture" id=15]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_17.png" type="Texture" id=15]
 [ext_resource path="res://UndeadWarrior.gd" type="Script" id=16]
 [ext_resource path="res://StateMachineUndeadWarrior.gd" type="Script" id=17]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_5.png" type="Texture" id=33]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_7.png" type="Texture" id=34]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_7.png" type="Texture" id=19]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_8.png" type="Texture" id=20]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_18.png" type="Texture" id=22]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_20.png" type="Texture" id=23]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_19.png" type="Texture" id=24]
+[ext_resource path="res://undead_warrior_in_combat-128v2/undead_warrior_1.png" type="Texture" id=25]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_14.png" type="Texture" id=26]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_13.png" type="Texture" id=27]
+[ext_resource path="res://undead_warrior_attack-128v2/new_attack/undead_warrior_15.png" type="Texture" id=28]
 [ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_3.png" type="Texture" id=35]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_4.png" type="Texture" id=36]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_8.png" type="Texture" id=37]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_9.png" type="Texture" id=38]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_10.png" type="Texture" id=39]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_11.png" type="Texture" id=40]
 [ext_resource path="res://undead_warrior_walk_128v2/undead_warrior_7.png" type="Texture" id=43]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_2.png" type="Texture" id=44]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_12.png" type="Texture" id=45]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_13.png" type="Texture" id=46]
-[ext_resource path="res://undead_warrior_attack-128v2/undead_warrior_14.png" type="Texture" id=47]
 [ext_resource path="res://undead_warrior_walk_128v2/undead_warrior_10.png" type="Texture" id=48]
 [ext_resource path="res://undead_warrior_walk_128v2/undead_warrior_9.png" type="Texture" id=49]
 [ext_resource path="res://undead_warrior_walk_128v2/undead_warrior_8.png" type="Texture" id=50]
@@ -39,22 +45,22 @@ shader_param/flash_modifier = 0.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 15 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "PostAttack",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": false,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 44 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 35 ), ExtResource( 6 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Attack",
 "speed": 9.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 47 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "PostAttack",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 25 ) ],
 "loop": true,
 "name": "TakeDmg",
 "speed": 2.5
@@ -89,7 +95,7 @@ script = ExtResource( 17 )
 material = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "Attack"
-frame = 1
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -105,8 +111,8 @@ scale = Vector2( 0.6, 1 )
 shape = SubResource( 4 )
 
 [node name="Attack_left" type="Area2D" parent="."]
-collision_layer = 32768
-collision_mask = 32768
+collision_layer = 34816
+collision_mask = 34816
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -118,8 +124,8 @@ shape = SubResource( 5 )
 disabled = true
 
 [node name="Attack_right" type="Area2D" parent="."]
-collision_layer = 32768
-collision_mask = 32768
+collision_layer = 34816
+collision_mask = 34816
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -135,10 +141,6 @@ wait_time = 1.75
 
 [node name="DmgTaken" type="Timer" parent="."]
 wait_time = 0.2
-
-[node name="AttackIndicator" parent="." instance=ExtResource( 5 )]
-visible = false
-position = Vector2( 32, -108 )
 
 [connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]

@@ -14,13 +14,14 @@ func _physics_process(_delta):
 		
 		if get_parent().get_node("StateMachine").attack && !in_motion && !finished:
 			
-			if get_parent().motion.x == 0:
-				extend = 30
-			else:
-				extend = 100
-				
-			collision_loc_x = global_position.x - extend
-			in_motion = true
+			if get_parent().get_node("AnimatedSprite").frame == 5:
+				if get_parent().motion.x == 0:
+					extend = 30
+				else:
+					extend = 100
+					
+				collision_loc_x = global_position.x - extend
+				in_motion = true
 			
 		if in_motion:
 			$CollisionShape2D.disabled = false

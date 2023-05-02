@@ -40,27 +40,42 @@ func _apply_gravity(delta):
 	motion.y += GRAVITY*delta
 
 func _apply_movement(_delta):
-	
+	if is_on_floor():
+		falling_motion = FALLING_MOTION
 	var distance = child_two.global_position.x - global_position.x
 	
 	if Input.is_action_just_pressed("ui_space"):
 		stop = !stop
 	
 	if !end && start && !stop:
-		if is_on_floor():
-			falling_motion = FALLING_MOTION
-			if direction == -1 && distance > -68 && child_two.is_on_floor():
+		if direction == -1 && distance > -68 || direction == 1 && distance < 110:
+			if is_on_floor():
 				motion.x = STOP
-			elif direction == 1 && distance < 110 && child_two.is_on_floor():
-				motion.x = STOP
-			else:
-				if direction == -1 && distance < -68:
-					motion.x = SPEED * direction
-				elif direction == 1 && distance > 110:
-					motion.x = SPEED * direction
-		elif !is_on_floor():
-			motion.x = falling_motion * direction
-			falling_motion -= 1
+			elif !is_on_floor():
+				motion.x = falling_motion * direction
+				falling_motion -= 1
+		else:
+			if is_on_floor() && !child_two.is_on_floor():
+				motion.x = 500 * direction
+			elif !is_on_floor():
+				motion.x = falling_motion * direction
+				falling_motion -= 1
+			else:			
+				motion.x = SPEED * direction
+#		if is_on_floor():
+#			falling_motion = FALLING_MOTION
+#			if direction == -1 && distance > -68 && child_two.is_on_floor():
+#				motion.x = STOP
+#			elif direction == 1 && distance < 110 && child_two.is_on_floor():
+#				motion.x = STOP
+#			else:
+#				if direction == -1 && distance < -68:
+#					motion.x = SPEED * direction
+#				elif direction == 1 && distance > 110:
+#					motion.x = SPEED * direction
+#		elif !is_on_floor():
+#			motion.x = falling_motion * direction
+#			falling_motion -= 1
 	else:
 		motion.x = 0
 		

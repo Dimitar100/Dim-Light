@@ -61,13 +61,6 @@ func _get_transition(_delta):
 				return states.walk
 			elif parent.in_range && !attackCooldown:
 				return states.attack
-			#if !parent.take_dmg:
-				#if parent.motion.x == 0:
-					#return states.idle
-				#elif parent.motion.x != 0:
-					#return states.walk
-				#elif parent.in_range && !attackCooldown:
-					#return states.attack
 
 	return null
 

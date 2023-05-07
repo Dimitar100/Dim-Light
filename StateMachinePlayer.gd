@@ -39,7 +39,7 @@ func _input(_event):
 					if parent.is_on_floor():
 						parent.motion.y = parent.JUMP
 					elif coyote_time:
-						print("hi")
+						#print("hi")
 						parent.motion.y = parent.JUMP
 
 		if ![states.dead].has(state):

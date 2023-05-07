@@ -57,6 +57,11 @@ animations = [ {
 "name": "Idle",
 "speed": 1.0
 }, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 24 ), ExtResource( 15 ) ],
 "loop": false,
 "name": "Jump",
@@ -66,11 +71,6 @@ animations = [ {
 "loop": false,
 "name": "Step",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 33 ), ExtResource( 6 ) ],
 "loop": true,
@@ -93,15 +93,15 @@ animations = [ {
 "name": "Idle",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 14 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 20 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 34 ), ExtResource( 5 ) ],
 "loop": true,
@@ -230,7 +230,12 @@ volume_db = -6.0
 stream = ExtResource( 43 )
 volume_db = -6.0
 
+[node name="CoyoteTime" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="body_entered" from="Atack_right" to="Atack_right" method="_on_Atack_right_body_entered"]
 [connection signal="body_entered" from="Atack_left" to="Atack_left" method="_on_Atack_left_body_entered"]
 [connection signal="timeout" from="BeforeDeath" to="." method="_on_BeforeDeath_timeout"]
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]
+[connection signal="timeout" from="CoyoteTime" to="StateMachine" method="_on_CoyoteTime_timeout"]

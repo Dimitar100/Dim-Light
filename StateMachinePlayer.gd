@@ -2,6 +2,7 @@ extends StateMachine
 
 var atack = false
 var direction = 0
+var coyote_time = false
 
 func _ready():
 	add_state("idle")
@@ -31,8 +32,15 @@ func _input(_event):
 		if [states.idle, states.walk, states.atack].has(state):
 			#JUMP
 			if Input.is_action_pressed("ui_up"):
-				if parent.is_on_floor():
-					parent.motion.y = parent.JUMP
+				if state == 4:
+					if parent.is_on_floor():
+						parent.motion.y = parent.JUMP
+				else:
+					if parent.is_on_floor():
+						parent.motion.y = parent.JUMP
+					elif coyote_time:
+						print("hi")
+						parent.motion.y = parent.JUMP
 
 		if ![states.dead].has(state):
 				if Input.is_action_just_pressed("ui_click_left"):
@@ -92,19 +100,14 @@ func _get_transition(_delta):
 		states.walk:
 			parent.speed = parent.SPEED
 			direction = parent.move_direction
-			#parent.get_node("FootSteps").stream_paused = false
 			if !parent.is_on_floor():
 				if parent.motion.y < 0:
-					#parent.get_node("FootSteps").stream_paused = true
 					return states.jump
-				if parent.motion.y >= 0:
-					#parent.get_node("FootSteps").stream_paused = true
+				elif parent.motion.y >= 0 && !coyote_time:
 					return states.fall
 			elif parent.motion.x == 0:
-				#parent.get_node("FootSteps").stream_paused = true
 				return states.idle
 			elif atack:
-				#parent.get_node("FootSteps").stream_paused = true
 				return states.atack
 		states.jump:
 			parent.speed = parent.JUMP_SPEED
@@ -115,6 +118,7 @@ func _get_transition(_delta):
 			elif atack:
 				return states.atack
 		states.fall:
+			coyote_time = true
 			parent.speed = parent.JUMP_SPEED
 			if parent.is_on_floor():
 				return states.idle
@@ -152,3 +156,7 @@ func _enter_state(new_state, old_state):
 
 func _exit_state(_old_state, _new_state):
 	pass
+
+
+func _on_CoyoteTime_timeout():
+	coyote_time = false

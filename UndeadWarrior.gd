@@ -21,6 +21,8 @@ export var tutorial = false
 export var SPEED = 150
 export var health = 1000
 
+var player = false
+
 func _ready():
 	#$AttackCooldown.start()
 	pass
@@ -94,10 +96,12 @@ func _play_anim(anim):
 	$AnimatedSprite.play(anim)
 
 func _on_Attack_left_body_entered(body):
-	body.kill()
+	if body.player:
+		body.kill()
 
 func _on_Attack_right_body_entered(body):
-	body.kill()
+	if body.player:
+		body.kill()
 
 
 func _on_DmgTaken_timeout():

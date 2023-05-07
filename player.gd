@@ -8,6 +8,7 @@ const GRAVITY = 2000
 export var JUMP = -850
 var speed = 0
 var start = false
+var player = true
 
 var motion = Vector2(0, 0)
 var move_direction = 0
@@ -48,6 +49,10 @@ func _is_falling():
 func _apply_movement(_delta):
 	motion.x = speed * move_direction 
 	motion = move_and_slide(motion, UP)
+	
+	if !is_on_floor() && motion.y >= 0:
+		$CoyoteTime.start()
+		$StateMachine.coyote_time = true
 	
 func kill():#is not used
 	$Sprite_left.visible = false

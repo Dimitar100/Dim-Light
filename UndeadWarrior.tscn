@@ -53,7 +53,7 @@ animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 35 ), ExtResource( 6 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Attack",
-"speed": 9.0
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": true,
@@ -78,7 +78,7 @@ extents = Vector2( 25.3813, 59.6316 )
 extents = Vector2( 167.653, 61.9986 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 27.9194, 20.6667 )
+extents = Vector2( 50, 20.6667 )
 
 [node name="UndeadWarrior" type="KinematicBody2D"]
 script = ExtResource( 16 )
@@ -94,8 +94,7 @@ script = ExtResource( 17 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )
 frames = SubResource( 2 )
-animation = "Attack"
-frame = 5
+animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -103,6 +102,7 @@ position = Vector2( 25, -4.014 )
 shape = SubResource( 3 )
 
 [node name="Range" type="Area2D" parent="."]
+visible = false
 collision_layer = 256
 collision_mask = 256
 
@@ -111,6 +111,7 @@ scale = Vector2( 0.6, 1 )
 shape = SubResource( 4 )
 
 [node name="Attack_left" type="Area2D" parent="."]
+position = Vector2( -44, 0 )
 collision_layer = 34816
 collision_mask = 34816
 script = ExtResource( 1 )
@@ -119,7 +120,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_left"]
-position = Vector2( -52, 11 )
+position = Vector2( -6, 11 )
 shape = SubResource( 5 )
 disabled = true
 
@@ -132,12 +133,12 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_right"]
-position = Vector2( 52, 11 )
+position = Vector2( 0, 11 )
 shape = SubResource( 5 )
 disabled = true
 
 [node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 1.75
+wait_time = 1.25
 
 [node name="DmgTaken" type="Timer" parent="."]
 wait_time = 0.2
